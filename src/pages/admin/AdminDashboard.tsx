@@ -273,7 +273,7 @@ const AdminDashboard: React.FC = () => {
           </CardContent>
         </Card>
 
-        <Card className="bg-dark-800/60 border-dark-700/60 backdrop-blur-sm">
+        <Card className="crypto-panel">
           <CardHeader>
             <CardTitle className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Répartition des Actifs</CardTitle>
             <CardDescription>
