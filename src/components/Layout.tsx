@@ -50,9 +50,9 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const navItems = isAdmin ? adminNavItems : clientNavItems;
 
   return (
-    <div className="min-h-screen bg-gradient-to-br from-dark-900 via-dark-900 to-[#0E132A]">
+    <div className="min-h-screen relative" style={{background: 'linear-gradient(135deg, #0A0F23 0%, #111834 50%, #0E132A 100%)'}}>
       {/* Mobile Header */}
-      <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-dark-900/80 backdrop-blur-sm border-b border-dark-700/60">
+      <div className="lg:hidden fixed top-0 left-0 right-0 z-50 panel border-b border-dark-700/60">
         <div className="flex items-center justify-between p-4">
           <div className="flex items-center space-x-3">
             <img src={logoUrl} alt="Crypto Logo" className="w-8 h-8 rounded-lg shadow-[0_4px_16px_rgba(0,163,255,0.45)]" />
@@ -78,7 +78,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       )}
 
       {/* Sidebar */}
-      <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-[#0B1124]/80 backdrop-blur-sm border-r border-dark-700/60 transform transition-transform duration-300 ease-in-out lg:translate-x-0 ${
+      <div className={`fixed inset-y-0 left-0 z-50 w-64 panel border-r transform transition-transform duration-300 ease-in-out lg:translate-x-0 ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       }`}>
         <div className="flex flex-col h-full">
@@ -120,10 +120,10 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     <Link
                       to={item.path}
                       onClick={() => setSidebarOpen(false)}
-                      className={`flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors ${
+                      className={`flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors hover-ring ${
                         isActive
-                          ? 'bg-gradient-to-r from-primary-500/20 to-primary-900/20 text-primary-300 border border-primary-500/30 shadow-[0_8px_20px_-6px_rgba(0,163,255,0.35)]'
-                          : 'text-gray-300 hover:bg-white/5 hover:text-white'
+                          ? 'bg-gradient-to-r from-primary-500/15 to-blue-500/10 text-primary-300 border border-primary-500/30 elevate-glow'
+                          : 'text-gray-300 hover:bg-white/5 hover:text-white border border-transparent'
                       }`}
                     >
                       <Icon className="w-5 h-5" />
@@ -151,7 +151,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
       {/* Main Content */}
       <div className="lg:ml-64">
-        <main className="p-4 lg:p-6 pt-20 lg:pt-6">
+        <main className="p-4 lg:p-6 pt-20 lg:pt-6 container-page">
           {children}
         </main>
       </div>
