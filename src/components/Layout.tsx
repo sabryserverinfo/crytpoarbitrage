@@ -50,22 +50,30 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const navItems = isAdmin ? adminNavItems : clientNavItems;
 
   return (
-    <div className="min-h-screen relative" style={{background: 'linear-gradient(135deg, #0A0F23 0%, #111834 50%, #0E132A 100%)'}}>
+    <div className="min-h-screen relative bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
+      {/* Advanced Background Effects */}
+      <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900"></div>
+      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-600/20 via-transparent to-transparent"></div>
+      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-purple-600/20 via-transparent to-transparent"></div>
+      
       {/* Mobile Header */}
-      <div className="lg:hidden fixed top-0 left-0 right-0 z-50 panel border-b border-dark-700/60">
+      <div className="lg:hidden fixed top-0 left-0 right-0 z-50 panel-glass border-b border-white/10 backdrop-blur-xl">
         <div className="flex items-center justify-between p-4">
           <div className="flex items-center space-x-3">
-            <img src={logoUrl} alt="Crypto Logo" className="w-8 h-8 rounded-lg shadow-[0_4px_16px_rgba(0,163,255,0.45)]" />
-            <span className="text-lg font-extrabold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent tracking-tight">Crypto Arbitrage</span>
+            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg">
+              <span className="text-white font-bold text-lg">C</span>
+            </div>
+            <div>
+              <h1 className="text-xl font-bold text-gradient-primary">CryptoArb</h1>
+              <p className="text-xs text-gray-400">Trading Platform</p>
+            </div>
           </div>
-          <Button
-            variant="ghost"
-            size="sm"
+          <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="text-white"
+            className="p-3 rounded-xl panel hover-ring transition-all duration-200"
           >
-            {sidebarOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-          </Button>
+            {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+          </button>
         </div>
       </div>
 
@@ -83,9 +91,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       }`}>
         <div className="flex flex-col h-full">
           {/* Logo */}
-          <div className="flex items-center space-x-3 p-6 border-b border-dark-700/60">
-            <img src={logoUrl} alt="Crypto Logo" className="w-9 h-9 rounded-lg shadow-[0_6px_22px_rgba(0,163,255,0.5)]" />
-            <span className="text-xl font-extrabold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent tracking-tight">Crypto Arbitrage</span>
+          <div className="flex items-center space-x-3 p-6 border-b border-white/10">
+            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-xl elevate-glow">
+              <span className="text-white font-bold text-xl">C</span>
+            </div>
+            <div>
+              <span className="text-xl font-extrabold text-gradient-primary tracking-tight">CryptoArb</span>
+              <p className="text-xs text-gray-400 font-medium">Trading Platform</p>
+            </div>
           </div>
 
           {/* User Info */}

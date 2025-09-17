@@ -138,7 +138,7 @@ const ClientWallets: React.FC = () => {
       </div>
 
       {/* Total Value */}
-      <Card className="bg-gradient-to-r from-primary-500/10 to-primary-600/10 border-primary-500/20 backdrop-blur-sm">
+      <Card className="panel elevate-sm">
         <CardContent className="p-6">
           <div className="flex items-center justify-between">
             <div>
@@ -164,7 +164,7 @@ const ClientWallets: React.FC = () => {
           const valueEUR = wallet.balance * price;
           
           return (
-            <Card key={`${wallet.user_id}-${wallet.asset}`} className="bg-dark-800/60 border-dark-700/60 backdrop-blur-sm transition-all duration-300 hover:bg-dark-800/80 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-15px_rgba(0,163,255,0.35)] hover:ring-1 hover:ring-primary-500/30">
+            <Card key={`${wallet.user_id}-${wallet.asset}`} className="panel elevate-sm hover-ring transition-all duration-300">
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
@@ -291,7 +291,7 @@ const ClientWallets: React.FC = () => {
       {/* Withdraw Form Modal */}
       {showWithdrawForm && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-          <Card className="w-full max-w-md bg-dark-800/90 border-dark-700/60 backdrop-blur-md">
+          <Card className="w-full max-w-md panel elevate-md">
             <CardHeader>
               <CardTitle className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Demande de Retrait</CardTitle>
               <CardDescription>
