@@ -329,15 +329,15 @@ body {
 
 /* Advanced Button System */
 .btn-primary {
-  background: var(--gradient-primary);
-  color: white;
-  border: none;
-  padding: 0.75rem 1.5rem;
-  border-radius: var(--radius-lg);
-  font-weight: 600;
-  transition: all var(--transition-normal);
+  background: var(--gradient-primary) !important;
+  color: white !important;
+  border: none !important;
+  padding: 0.75rem 1.5rem !important;
+  border-radius: var(--radius-lg) !important;
+  font-weight: 600 !important;
+  transition: all var(--transition-normal) !important;
   cursor: pointer;
-  box-shadow: var(--elev-sm);
+  box-shadow: var(--elev-sm) !important;
   position: relative;
   overflow: hidden;
 }
@@ -627,14 +627,14 @@ body {
 .enhanced-card {
   background: linear-gradient(135deg, 
     rgba(22, 26, 30, 0.9) 0%, 
-    rgba(46, 49, 57, 0.8) 100%);
-  border: 1px solid rgba(247, 147, 26, 0.2);
-  border-radius: var(--radius-xl);
-  backdrop-filter: blur(24px);
+    rgba(46, 49, 57, 0.8) 100%) !important;
+  border: 1px solid rgba(247, 147, 26, 0.2) !important;
+  border-radius: var(--radius-xl) !important;
+  backdrop-filter: blur(24px) !important;
   box-shadow: 
     0 20px 40px rgba(0, 0, 0, 0.4),
-    inset 0 1px 0 rgba(255, 255, 255, 0.1);
-  transition: all 0.3s ease;
+    inset 0 1px 0 rgba(255, 255, 255, 0.1) !important;
+  transition: all 0.3s ease !important;
   position: relative;
   overflow: hidden;
 }
