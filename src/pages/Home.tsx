@@ -2,7 +2,8 @@ import React, { useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { Button } from '../components/ui/button';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../components/ui/card';
-import { TrendingUp, Shield, Zap, ArrowRight, Star, Users, DollarSign, BarChart3 } from 'lucide-react';
+import { Shield, Zap, ArrowRight, Star, Users, DollarSign, BarChart3 } from 'lucide-react';
+import logoUrl from '../assets/crypto-logo.svg?url';
 import { planService } from '../services/githubService';
 import type { Plan } from '../types';
 import { coinapiService } from '../services/coinapiService';
@@ -55,11 +56,9 @@ const Home: React.FC = () => {
       <nav className="container mx-auto px-4 py-6 relative z-10">
         <div className="flex items-center justify-between">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 bg-gradient-to-br from-primary-500 to-blue-500 rounded-xl flex items-center justify-center shadow-lg">
-              <TrendingUp className="w-6 h-6 text-white" />
-            </div>
-            <span className="text-2xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-              Crypto-Arbitrage
+            <img src={logoUrl} alt="Crypto Logo" className="w-10 h-10 rounded-xl shadow-[0_6px_20px_rgba(0,163,255,0.45)]" />
+            <span className="text-2xl font-extrabold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent tracking-tight">
+              Crypto Arbitrage
             </span>
           </div>
           <div className="flex items-center space-x-4">
@@ -438,10 +437,8 @@ const Home: React.FC = () => {
         <div className="grid md:grid-cols-4 gap-8 mb-8">
           <div>
             <div className="flex items-center space-x-3 mb-4">
-              <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-blue-500 rounded-lg flex items-center justify-center">
-                <TrendingUp className="w-5 h-5 text-white" />
-              </div>
-              <span className="text-xl font-bold text-white">Crypto-Arbitrage</span>
+              <img src={logoUrl} alt="Crypto Logo" className="w-8 h-8 rounded-lg shadow-[0_4px_16px_rgba(0,163,255,0.45)]" />
+              <span className="text-xl font-extrabold text-white tracking-tight">Crypto Arbitrage</span>
             </div>
             <p className="text-gray-400 text-sm leading-relaxed">
               La plateforme d'arbitrage crypto la plus avancée et sécurisée du marché.

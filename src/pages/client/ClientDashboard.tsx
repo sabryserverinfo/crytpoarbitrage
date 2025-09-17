@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../components/ui/card';
+import { Button } from '../../components/ui/button';
 import { useAuth } from '../../hooks/useAuth';
 import { walletService, transactionService } from '../../services/githubService';
 import { coinapiService } from '../../services/coinapiService';
@@ -125,9 +126,15 @@ const ClientDashboard: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div>
-        <h1 className="text-3xl font-bold text-white">Dashboard</h1>
-        <p className="text-gray-400">Bienvenue, {user?.name}</p>
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-3xl font-extrabold text-gradient-silver tracking-tight">Tableau de bord</h1>
+          <p className="text-gray-400">Bienvenue, {user?.name}</p>
+        </div>
+        <div className="hidden md:flex items-center gap-3">
+          <Button size="sm" variant="outline" className="border-primary-500/40 text-primary-400 hover:bg-primary-500/10">Déposer</Button>
+          <Button size="sm" className="bg-gradient-to-r from-primary-500 to-blue-600">Nouveau plan</Button>
+        </div>
       </div>
 
       {/* Stats Cards */}

@@ -3,7 +3,6 @@ import { Link, useLocation, useNavigate } from 'react-router-dom';
 import { useAuth } from '../hooks/useAuth';
 import { Button } from './ui/button';
 import { 
-  TrendingUp, 
   User, 
   Wallet, 
   BarChart3, 
@@ -15,6 +14,7 @@ import {
   Menu,
   X
 } from 'lucide-react';
+import logoUrl from '../assets/crypto-logo.svg?url';
 
 interface LayoutProps {
   children: React.ReactNode;
@@ -52,13 +52,11 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   return (
     <div className="min-h-screen bg-gradient-to-br from-dark-900 via-dark-900 to-[#0E132A]">
       {/* Mobile Header */}
-      <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-dark-800 border-b border-dark-700">
+      <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-dark-900/80 backdrop-blur-sm border-b border-dark-700/60">
         <div className="flex items-center justify-between p-4">
-          <div className="flex items-center space-x-2">
-            <div className="w-8 h-8 bg-primary-500 rounded-lg flex items-center justify-center">
-              <TrendingUp className="w-5 h-5 text-white" />
-            </div>
-            <span className="text-lg font-bold text-white">Crypto-Arbitrage</span>
+          <div className="flex items-center space-x-3">
+            <img src={logoUrl} alt="Crypto Logo" className="w-8 h-8 rounded-lg shadow-[0_4px_16px_rgba(0,163,255,0.45)]" />
+            <span className="text-lg font-extrabold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent tracking-tight">Crypto Arbitrage</span>
           </div>
           <Button
             variant="ghost"
@@ -80,16 +78,14 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       )}
 
       {/* Sidebar */}
-      <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-dark-800/80 backdrop-blur-sm border-r border-dark-700/60 transform transition-transform duration-300 ease-in-out lg:translate-x-0 ${
+      <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-[#0B1124]/80 backdrop-blur-sm border-r border-dark-700/60 transform transition-transform duration-300 ease-in-out lg:translate-x-0 ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       }`}>
         <div className="flex flex-col h-full">
           {/* Logo */}
-          <div className="flex items-center space-x-2 p-6 border-b border-dark-700/60">
-            <div className="w-8 h-8 bg-gradient-to-br from-primary-500 to-blue-500 rounded-lg flex items-center justify-center shadow-md">
-              <TrendingUp className="w-5 h-5 text-white" />
-            </div>
-            <span className="text-xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Crypto-Arbitrage</span>
+          <div className="flex items-center space-x-3 p-6 border-b border-dark-700/60">
+            <img src={logoUrl} alt="Crypto Logo" className="w-9 h-9 rounded-lg shadow-[0_6px_22px_rgba(0,163,255,0.5)]" />
+            <span className="text-xl font-extrabold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent tracking-tight">Crypto Arbitrage</span>
           </div>
 
           {/* User Info */}
@@ -126,8 +122,8 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                       onClick={() => setSidebarOpen(false)}
                       className={`flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors ${
                         isActive
-                          ? 'bg-primary-500/15 text-primary-400 border border-primary-500/30 shadow-sm'
-                          : 'text-gray-300 hover:bg-dark-700/60 hover:text-white'
+                          ? 'bg-gradient-to-r from-primary-500/20 to-primary-900/20 text-primary-300 border border-primary-500/30 shadow-[0_8px_20px_-6px_rgba(0,163,255,0.35)]'
+                          : 'text-gray-300 hover:bg-white/5 hover:text-white'
                       }`}
                     >
                       <Icon className="w-5 h-5" />

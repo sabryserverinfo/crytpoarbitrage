@@ -5,7 +5,8 @@ import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../co
 import { Input } from '../components/ui/input';
 import { Label } from '../components/ui/label';
 import { useAuth } from '../hooks/useAuth';
-import { TrendingUp, Eye, EyeOff, Loader2, AlertCircle, ArrowRight } from 'lucide-react';
+import { Eye, EyeOff, Loader2, AlertCircle, ArrowRight } from 'lucide-react';
+import logoUrl from '../assets/crypto-logo.svg?url';
 
 const Login: React.FC = () => {
   const [email, setEmail] = useState('');
@@ -49,11 +50,9 @@ const Login: React.FC = () => {
         {/* Logo */}
         <div className="text-center mb-8">
           <Link to="/" className="inline-flex items-center space-x-3 group">
-            <div className="w-14 h-14 bg-gradient-to-br from-primary-500 to-blue-500 rounded-2xl flex items-center justify-center shadow-lg group-hover:scale-110 transition-transform duration-200">
-              <TrendingUp className="w-8 h-8 text-white" />
-            </div>
-            <span className="text-3xl font-bold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
-              Crypto-Arbitrage
+            <img src={logoUrl} alt="Crypto Logo" className="w-14 h-14 rounded-2xl shadow-[0_8px_24px_rgba(0,163,255,0.45)] group-hover:scale-110 transition-transform duration-200" />
+            <span className="text-3xl font-extrabold bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent tracking-tight">
+              Crypto Arbitrage
             </span>
           </Link>
         </div>

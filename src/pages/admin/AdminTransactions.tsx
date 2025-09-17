@@ -96,17 +96,15 @@ const AdminTransactions: React.FC = () => {
   };
 
   const getStatusBadge = (status: string) => {
-    const baseClasses = "inline-block px-2 py-1 text-xs rounded-full font-medium";
-    
     switch (status) {
       case 'confirmed':
-        return `${baseClasses} bg-green-500/20 text-green-400`;
+        return 'badge badge--success';
       case 'pending':
-        return `${baseClasses} bg-yellow-500/20 text-yellow-400`;
+        return 'badge badge--warning';
       case 'rejected':
-        return `${baseClasses} bg-red-500/20 text-red-400`;
+        return 'badge badge--danger';
       default:
-        return `${baseClasses} bg-gray-500/20 text-gray-400`;
+        return 'badge badge--info';
     }
   };
 
@@ -171,9 +169,11 @@ const AdminTransactions: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div>
-        <h1 className="text-3xl font-bold text-white">Gestion des Transactions</h1>
-        <p className="text-gray-400">Gérez toutes les transactions de la plateforme</p>
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-3xl font-extrabold text-gradient-silver tracking-tight">Gestion des Transactions</h1>
+          <p className="text-gray-400">Gérez toutes les transactions de la plateforme</p>
+        </div>
       </div>
 
       {/* Stats */}
@@ -312,51 +312,50 @@ const AdminTransactions: React.FC = () => {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="space-y-3">
+          <div className="table">
+            <div className="table-header" style={{gridTemplateColumns: '1.2fr 0.6fr 0.5fr 0.5fr'}}>
+              <div>Détails</div>
+              <div>Montant</div>
+              <div>Statut</div>
+              <div>Actions</div>
+            </div>
             {filteredTransactions.map((transaction) => {
               const { date, time } = formatDate(transaction.timestamp);
               const userName = getUserName(transaction.user_id);
-              
               return (
-                <div key={transaction.id} className="flex items-center justify-between p-4 bg-dark-700/80 border border-dark-600/60 rounded-lg hover:bg-dark-700 transition-colors">
-                  <div className="flex items-center space-x-4">
-                    <div className="w-10 h-10 bg-dark-600 rounded-full flex items-center justify-center">
+                <div key={transaction.id} className="table-row" style={{gridTemplateColumns: '1.2fr 0.6fr 0.5fr 0.5fr'}}>
+                  <div className="flex items-center space-x-3 min-w-0">
+                    <div className="w-9 h-9 bg-dark-600 rounded-full flex items-center justify-center flex-shrink-0">
                       {getTransactionIcon(transaction.type)}
                     </div>
-                    <div>
-                      <p className="text-white font-medium">
+                    <div className="min-w-0">
+                      <p className="text-white font-medium truncate">
                         {getTransactionTypeLabel(transaction.type)}
                       </p>
-                      <p className="text-gray-400 text-sm">
-                        {userName} - {transaction.amount} {transaction.asset}
+                      <p className="text-gray-400 text-xs truncate">
+                        {userName} • {transaction.asset}
                       </p>
                       <p className="text-gray-500 text-xs">
                         {date} à {time}
                       </p>
-                      {transaction.description && (
-                        <p className="text-gray-500 text-xs">
-                          {transaction.description}
-                        </p>
-                      )}
                     </div>
                   </div>
-                  
-                  <div className="flex items-center space-x-3">
-                    <div className="text-right">
-                      <p className="text-white font-medium">
-                        {transaction.amount.toFixed(6)} {transaction.asset}
-                      </p>
-                      <span className={getStatusBadge(transaction.status)}>
-                        {getStatusLabel(transaction.status)}
-                      </span>
-                    </div>
-                    
-                    {transaction.status === 'pending' && (
-                      <div className="flex space-x-2">
+                  <div className="text-white font-medium">
+                    {transaction.amount.toFixed(6)} {transaction.asset}
+                  </div>
+                  <div>
+                    <span className={getStatusBadge(transaction.status)}>
+                      {getStatusLabel(transaction.status)}
+                    </span>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    {transaction.status === 'pending' ? (
+                      <>
                         <Button
                           size="sm"
                           onClick={() => handleUpdateTransaction(transaction.id, 'confirmed')}
                           className="bg-green-500 hover:bg-green-600"
+                          aria-label="Confirmer"
                         >
                           <Check className="w-4 h-4" />
                         </Button>
@@ -367,10 +366,13 @@ const AdminTransactions: React.FC = () => {
                             handleUpdateTransaction(transaction.id, 'rejected', reason || undefined);
                           }}
                           className="bg-red-500 hover:bg-red-600"
+                          aria-label="Rejeter"
                         >
                           <X className="w-4 h-4" />
                         </Button>
-                      </div>
+                      </>
+                    ) : (
+                      <span className="text-gray-500 text-xs">—</span>
                     )}
                   </div>
                 </div>

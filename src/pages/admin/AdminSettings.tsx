@@ -89,9 +89,11 @@ const AdminSettings: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div>
-        <h1 className="text-3xl font-bold text-white">Paramètres</h1>
-        <p className="text-gray-400">Configurez les paramètres globaux de l'application</p>
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-3xl font-extrabold text-gradient-silver tracking-tight">Paramètres</h1>
+          <p className="text-gray-400">Configurez les paramètres globaux de l'application</p>
+        </div>
       </div>
 
       <form onSubmit={handleSaveSettings} className="space-y-6">

@@ -129,7 +129,7 @@ const AdminUsers: React.FC = () => {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white">Gestion des Utilisateurs</h1>
+          <h1 className="text-3xl font-extrabold text-gradient-silver tracking-tight">Gestion des Utilisateurs</h1>
           <p className="text-gray-400">Gérez les comptes utilisateurs et administrateurs</p>
         </div>
         <Button onClick={() => setShowAddForm(true)}>
@@ -207,34 +207,33 @@ const AdminUsers: React.FC = () => {
           </CardDescription>
         </CardHeader>
         <CardContent>
-          <div className="space-y-3">
+          <div className="table">
+            <div className="table-header" style={{gridTemplateColumns: '1.2fr 1fr 0.6fr 0.5fr'}}>
+              <div>Utilisateur</div>
+              <div>Email</div>
+              <div>Rôle</div>
+              <div>Actions</div>
+            </div>
             {filteredUsers.map((user) => (
-              <div key={user.id} className="flex items-center justify-between p-4 bg-dark-700/80 border border-dark-600/60 rounded-lg hover:bg-dark-700 transition-colors">
-                <div className="flex items-center space-x-4">
-                  <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                    user.role === 'admin' ? 'bg-red-500/20' : 'bg-blue-500/20'
-                  }`}>
-                    {user.role === 'admin' ? 
-                      <Shield className="w-5 h-5 text-red-500" /> :
-                      <UserIcon className="w-5 h-5 text-blue-500" />
-                    }
+              <div key={user.id} className="table-row" style={{gridTemplateColumns: '1.2fr 1fr 0.6fr 0.5fr'}}>
+                <div className="flex items-center space-x-3 min-w-0">
+                  <div className={`w-9 h-9 rounded-full flex items-center justify-center flex-shrink-0 ${user.role === 'admin' ? 'bg-red-500/20' : 'bg-blue-500/20'}`}> 
+                    {user.role === 'admin' ? <Shield className="w-4 h-4 text-red-500" /> : <UserIcon className="w-4 h-4 text-blue-500" />}
                   </div>
-                  <div>
-                    <p className="text-white font-medium">{user.name}</p>
-                    <p className="text-gray-400 text-sm">{user.email}</p>
-                    <span className={`inline-block px-2 py-1 text-xs rounded-full ${
-                      user.role === 'admin' ? 'bg-red-500/15 border border-red-500/20 text-red-400' : 'bg-blue-500/15 border border-blue-500/20 text-blue-400'
-                    }`}>
-                      {user.role === 'admin' ? 'Administrateur' : 'Utilisateur'}
-                    </span>
-                  </div>
+                  <p className="text-white font-medium truncate">{user.name}</p>
                 </div>
-                
-                <div className="flex space-x-2">
+                <div className="text-gray-300 truncate">{user.email}</div>
+                <div>
+                  <span className={user.role === 'admin' ? 'badge badge--danger' : 'badge badge--info'}>
+                    {user.role === 'admin' ? 'Administrateur' : 'Utilisateur'}
+                  </span>
+                </div>
+                <div className="flex items-center gap-2">
                   <Button
                     variant="outline"
                     size="sm"
                     onClick={() => startEdit(user)}
+                    aria-label="Modifier"
                   >
                     <Edit className="w-4 h-4" />
                   </Button>
@@ -243,6 +242,7 @@ const AdminUsers: React.FC = () => {
                     size="sm"
                     onClick={() => handleDeleteUser(user.id)}
                     className="text-red-400 hover:text-red-300"
+                    aria-label="Supprimer"
                   >
                     <Trash2 className="w-4 h-4" />
                   </Button>

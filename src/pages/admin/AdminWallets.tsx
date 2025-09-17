@@ -171,7 +171,7 @@ const AdminWallets: React.FC = () => {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white">Gestion des Portefeuilles</h1>
+          <h1 className="text-3xl font-extrabold text-gradient-silver tracking-tight">Gestion des Portefeuilles</h1>
           <p className="text-gray-400">Gérez les portefeuilles crypto des utilisateurs</p>
         </div>
         <Button onClick={() => setShowAddForm(true)}>
@@ -290,24 +290,6 @@ const AdminWallets: React.FC = () => {
                       {wallet.balance.toFixed(6)} {wallet.asset}
                     </span>
                   </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-gray-400">Valeur EUR</span>
-                    <span className="text-white font-bold">
-                      {valueEUR.toLocaleString('fr-FR', { 
-                        style: 'currency', 
-                        currency: 'EUR' 
-                      })}
-                    </span>
-                  </div>
-                  <div className="flex items-center justify-between">
-                    <span className="text-gray-400">Prix unitaire</span>
-                    <span className="text-gray-300">
-                      {price.toLocaleString('fr-FR', { 
-                        style: 'currency', 
-                        currency: 'EUR' 
-                      })}
-                    </span>
-                  </div>
                 </div>
 
                 {/* Deposit Address */}
@@ -347,6 +329,76 @@ const AdminWallets: React.FC = () => {
           );
         })}
       </div>
+
+      {/* Wallets List */}
+      <Card className="bg-dark-800/60 border-dark-700/60 backdrop-blur-sm">
+        <CardHeader>
+          <CardTitle className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Liste des Portefeuilles</CardTitle>
+          <CardDescription>
+            {filteredWallets.length} portefeuille(s) trouvé(s)
+          </CardDescription>
+        </CardHeader>
+        <CardContent>
+          <div className="table">
+            <div className="table-header" style={{gridTemplateColumns: '1fr 0.6fr 0.8fr 1fr 0.5fr'}}>
+              <div>Utilisateur</div>
+              <div>Asset</div>
+              <div>Balance</div>
+              <div>Adresse</div>
+              <div>Actions</div>
+            </div>
+            {filteredWallets.map((wallet) => {
+              const user = users.find(u => u.id === wallet.user_id);
+              const price = cryptoPrices[wallet.asset] || 0;
+              const value = wallet.balance * price;
+              
+              return (
+                <div key={wallet.id} className="table-row" style={{gridTemplateColumns: '1fr 0.6fr 0.8fr 1fr 0.5fr'}}>
+                  <div className="flex items-center space-x-3 min-w-0">
+                    <div className="w-9 h-9 bg-dark-600 rounded-full flex items-center justify-center flex-shrink-0">
+                      <WalletIcon className="w-4 h-4 text-primary-500" />
+                    </div>
+                    <p className="text-white font-medium truncate">{user?.name || 'Utilisateur inconnu'}</p>
+                  </div>
+                  <div className="text-white font-medium">{wallet.asset}</div>
+                  <div>
+                    <p className="text-white font-medium">
+                      {wallet.balance.toFixed(6)} {wallet.asset}
+                    </p>
+                    <p className="text-gray-400 text-xs">
+                      ≈ ${value.toFixed(2)}
+                    </p>
+                  </div>
+                  <div className="min-w-0">
+                    <p className="text-gray-300 text-sm font-mono truncate" title={wallet.deposit_address}>
+                      {wallet.deposit_address.slice(0, 8)}...{wallet.deposit_address.slice(-6)}
+                    </p>
+                  </div>
+                  <div className="flex items-center gap-2">
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => startEdit(wallet)}
+                      aria-label="Modifier"
+                    >
+                      <Edit className="w-4 h-4" />
+                    </Button>
+                    <Button
+                      variant="outline"
+                      size="sm"
+                      onClick={() => handleDeleteWallet()}
+                      className="text-red-400 hover:text-red-300"
+                      aria-label="Supprimer"
+                    >
+                      <Trash2 className="w-4 h-4" />
+                    </Button>
+                  </div>
+                </div>
+              );
+            })}
+          </div>
+        </CardContent>
+      </Card>
 
       {/* Add/Edit Form Modal */}
       {(showAddForm || editingWallet) && (

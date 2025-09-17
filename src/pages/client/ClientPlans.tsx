@@ -100,9 +100,16 @@ const ClientPlans: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div>
-        <h1 className="text-3xl font-bold text-white">Plans d'Investissement</h1>
-        <p className="text-gray-400">Choisissez le plan qui correspond à vos objectifs</p>
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-3xl font-extrabold text-gradient-silver tracking-tight">Plans d'Investissement</h1>
+          <p className="text-gray-400">Choisissez le plan qui correspond à vos objectifs</p>
+        </div>
+        <div className="hidden md:flex items-center gap-3">
+          <Button variant="outline" size="sm" className="border-primary-500/40 text-primary-400 hover:bg-primary-500/10" onClick={() => setShowCalculator(true)}>
+            Ouvrir le simulateur
+          </Button>
+        </div>
       </div>
 
       {/* Calculator */}
@@ -171,7 +178,7 @@ const ClientPlans: React.FC = () => {
       {/* Plans Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {plans.map((plan) => (
-          <Card key={plan.id} className="relative overflow-hidden bg-dark-800/60 border-dark-700/60 backdrop-blur-sm hover:bg-dark-800/80 transition-colors">
+          <Card key={plan.id} className="relative overflow-hidden bg-dark-800/60 border-dark-700/60 backdrop-blur-sm transition-all duration-300 hover:bg-dark-800/80 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-15px_rgba(0,163,255,0.35)] hover:ring-1 hover:ring-primary-500/30">
             {plan.name === 'VIP' && (
               <div className="absolute top-4 right-4">
                 <Star className="w-5 h-5 text-yellow-500 fill-current" />
@@ -193,13 +200,13 @@ const ClientPlans: React.FC = () => {
             <CardContent className="space-y-4">
               {/* Stats */}
               <div className="grid grid-cols-2 gap-4">
-                <div className="text-center p-3 bg-dark-700 rounded-lg">
+                <div className="text-center p-3 bg-dark-700/70 hover:bg-dark-700/90 rounded-lg transition-colors">
                   <div className="text-2xl font-bold text-primary-500">
                     {plan.yield_percent}%
                   </div>
                   <div className="text-sm text-gray-400">Rendement</div>
                 </div>
-                <div className="text-center p-3 bg-dark-700 rounded-lg">
+                <div className="text-center p-3 bg-dark-700/70 hover:bg-dark-700/90 rounded-lg transition-colors">
                   <div className="text-2xl font-bold text-green-500">
                     {plan.duration_months}
                   </div>
@@ -208,7 +215,7 @@ const ClientPlans: React.FC = () => {
               </div>
 
               {/* Asset Info */}
-              <div className="flex items-center justify-between p-3 bg-dark-700 rounded-lg">
+              <div className="flex items-center justify-between p-3 bg-dark-700/70 hover:bg-dark-700/90 rounded-lg transition-colors">
                 <div className="flex items-center space-x-2">
                   <span className="text-lg">{getAssetIcon(plan.asset)}</span>
                   <span className="text-white font-medium">{plan.asset}</span>
@@ -230,7 +237,7 @@ const ClientPlans: React.FC = () => {
                   <DollarSign className="w-4 h-4 text-gray-400" />
                   <span className="text-sm text-gray-400">Montant d'investissement</span>
                 </div>
-                <div className="text-center p-2 bg-dark-700 rounded">
+                <div className="text-center p-2 bg-dark-700/70 rounded transition-colors">
                   <span className="text-white font-medium">
                     {plan.min_eur.toLocaleString('fr-FR', { 
                       style: 'currency', 

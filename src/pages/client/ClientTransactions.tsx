@@ -103,17 +103,15 @@ const ClientTransactions: React.FC = () => {
   };
 
   const getStatusBadge = (status: string) => {
-    const baseClasses = "inline-block px-2 py-1 text-xs rounded-full font-medium";
-    
     switch (status) {
       case 'confirmed':
-        return `${baseClasses} bg-green-500/20 text-green-400`;
+        return 'badge badge--success';
       case 'pending':
-        return `${baseClasses} bg-yellow-500/20 text-yellow-400`;
+        return 'badge badge--warning';
       case 'rejected':
-        return `${baseClasses} bg-red-500/20 text-red-400`;
+        return 'badge badge--danger';
       default:
-        return `${baseClasses} bg-gray-500/20 text-gray-400`;
+        return 'badge badge--info';
     }
   };
 
@@ -170,9 +168,11 @@ const ClientTransactions: React.FC = () => {
 
   return (
     <div className="space-y-6">
-      <div>
-        <h1 className="text-3xl font-bold text-white">Mes Transactions</h1>
-        <p className="text-gray-400">Historique complet de vos opérations</p>
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-3xl font-extrabold text-gradient-silver tracking-tight">Mes Transactions</h1>
+          <p className="text-gray-400">Historique complet de vos opérations</p>
+        </div>
       </div>
 
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
@@ -312,21 +312,25 @@ const ClientTransactions: React.FC = () => {
               <p className="text-gray-400">Aucune transaction trouvée</p>
             </div>
           ) : (
-            <div className="space-y-3">
+            <div className="table">
+              <div className="table-header">
+                <div>Détails</div>
+                <div>Montant</div>
+                <div>Statut</div>
+              </div>
               {filteredTransactions.map((transaction) => {
                 const { date, time } = formatDate(transaction.timestamp);
-                
                 return (
-                  <div key={transaction.id} className="flex items-center justify-between p-4 bg-dark-700/80 border border-dark-600/60 rounded-lg hover:bg-dark-700 transition-colors">
-                    <div className="flex items-center space-x-4">
-                      <div className="w-10 h-10 bg-dark-600 rounded-full flex items-center justify-center">
+                  <div key={transaction.id} className="table-row">
+                    <div className="flex items-center space-x-3 min-w-0">
+                      <div className="w-9 h-9 bg-dark-600 rounded-full flex items-center justify-center flex-shrink-0">
                         {getTransactionIcon(transaction.type)}
                       </div>
-                      <div>
-                        <p className="text-white font-medium">
+                      <div className="min-w-0">
+                        <p className="text-white font-medium truncate">
                           {getTransactionTypeLabel(transaction.type)}
                         </p>
-                        <p className="text-gray-400 text-sm">
+                        <p className="text-gray-400 text-xs truncate">
                           {transaction.description || `Transaction ${transaction.id}`}
                         </p>
                         <div className="flex items-center space-x-2 mt-1">
@@ -341,11 +345,10 @@ const ClientTransactions: React.FC = () => {
                         </div>
                       </div>
                     </div>
-                    
-                    <div className="text-right">
-                      <p className="text-white font-medium">
-                        {transaction.amount.toFixed(6)} {transaction.asset}
-                      </p>
+                    <div className="text-white font-medium">
+                      {transaction.amount.toFixed(6)} {transaction.asset}
+                    </div>
+                    <div>
                       <span className={getStatusBadge(transaction.status)}>
                         {getStatusLabel(transaction.status)}
                       </span>

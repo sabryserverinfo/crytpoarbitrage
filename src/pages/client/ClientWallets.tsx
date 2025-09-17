@@ -130,9 +130,11 @@ const ClientWallets: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div>
-        <h1 className="text-3xl font-bold text-white">Mes Portefeuilles</h1>
-        <p className="text-gray-400">Gérez vos actifs crypto</p>
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-3xl font-extrabold text-gradient-silver tracking-tight">Mes Portefeuilles</h1>
+          <p className="text-gray-400">Gérez vos actifs crypto</p>
+        </div>
       </div>
 
       {/* Total Value */}
@@ -162,7 +164,7 @@ const ClientWallets: React.FC = () => {
           const valueEUR = wallet.balance * price;
           
           return (
-            <Card key={`${wallet.user_id}-${wallet.asset}`} className="bg-dark-800/60 border-dark-700/60 backdrop-blur-sm hover:bg-dark-800/80 transition-colors">
+            <Card key={`${wallet.user_id}-${wallet.asset}`} className="bg-dark-800/60 border-dark-700/60 backdrop-blur-sm transition-all duration-300 hover:bg-dark-800/80 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-15px_rgba(0,163,255,0.35)] hover:ring-1 hover:ring-primary-500/30">
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">
@@ -181,7 +183,7 @@ const ClientWallets: React.FC = () => {
               
               <CardContent className="space-y-4">
                 {/* Balance */}
-                <div className="space-y-2">
+                <div className="space-y-2 p-3 bg-dark-700/50 rounded-lg transition-colors">
                   <div className="flex items-center justify-between">
                     <span className="text-gray-400">Solde</span>
                     <span className="text-white font-medium">
@@ -220,7 +222,7 @@ const ClientWallets: React.FC = () => {
                       {showAddresses ? <EyeOff className="w-4 h-4" /> : <Eye className="w-4 h-4" />}
                     </Button>
                   </div>
-                  <div className="p-3 bg-dark-700 rounded-lg">
+                  <div className="p-3 bg-dark-700/70 hover:bg-dark-700/90 rounded-lg transition-colors">
                     {showAddresses ? (
                       <div className="space-y-2">
                         <div className="flex items-center justify-center py-2">

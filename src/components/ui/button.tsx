@@ -4,25 +4,25 @@ import { cva, type VariantProps } from "class-variance-authority"
 import { cn } from "../../utils/cn"
 
 const buttonVariants = cva(
-  "inline-flex items-center justify-center whitespace-nowrap rounded-md text-sm font-medium ring-offset-background transition-colors focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
+  "inline-flex items-center justify-center whitespace-nowrap rounded-full text-sm font-semibold tracking-wide ring-offset-background transition-all duration-200 focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-primary-400/60 focus-visible:ring-offset-2 disabled:pointer-events-none disabled:opacity-50",
   {
     variants: {
       variant: {
-        default: "bg-primary-500 text-white hover:bg-primary-600",
+        default: "bg-gradient-to-r from-primary-500 to-primary-900 text-white shadow-[0_8px_20px_-6px_rgba(0,163,255,0.55)] hover:shadow-[0_10px_24px_-6px_rgba(0,163,255,0.75)] hover:brightness-110",
         destructive:
-          "bg-red-500 text-white hover:bg-red-600",
+          "bg-gradient-to-r from-red-500 to-red-700 text-white shadow-[0_8px_20px_-6px_rgba(239,68,68,0.55)] hover:brightness-110",
         outline:
-          "border border-primary-500 text-primary-500 hover:bg-primary-500 hover:text-white",
+          "border-2 border-transparent text-primary-400 hover:text-white [background:linear-gradient(#0A0F23,#0A0F23)_padding-box,linear-gradient(90deg,#0033AD,#00A3FF)_border-box] hover:[background:linear-gradient(#0E132A,#0E132A)_padding-box,linear-gradient(90deg,#00A3FF,#0033AD)_border-box]",
         secondary:
-          "bg-dark-800 text-white hover:bg-dark-700",
-        ghost: "hover:bg-dark-800 hover:text-white",
-        link: "text-primary-500 underline-offset-4 hover:underline",
+          "bg-dark-800/70 text-white hover:bg-dark-700/80 border border-dark-700 backdrop-blur-xs",
+        ghost: "text-white/80 hover:text-white hover:bg-white/5",
+        link: "text-primary-400 underline-offset-4 hover:underline",
       },
       size: {
-        default: "h-10 px-4 py-2",
-        sm: "h-9 rounded-md px-3",
-        lg: "h-11 rounded-md px-8",
-        icon: "h-10 w-10",
+        default: "h-11 px-6",
+        sm: "h-9 px-4",
+        lg: "h-12 px-8 text-base",
+        icon: "h-11 w-11",
       },
     },
     defaultVariants: {

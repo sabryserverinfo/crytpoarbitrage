@@ -150,7 +150,7 @@ const AdminPlans: React.FC = () => {
       {/* Header */}
       <div className="flex items-center justify-between">
         <div>
-          <h1 className="text-3xl font-bold text-white">Gestion des Plans</h1>
+          <h1 className="text-3xl font-extrabold text-gradient-silver tracking-tight">Gestion des Plans</h1>
           <p className="text-gray-400">Créez et gérez les plans d'investissement</p>
         </div>
         <Button onClick={() => setShowAddForm(true)}>

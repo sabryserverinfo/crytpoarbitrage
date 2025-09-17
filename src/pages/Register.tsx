@@ -6,6 +6,7 @@ import { Label } from '../components/ui/label';
 import { Button } from '../components/ui/button';
 import { userService, walletService } from '../services/githubService';
 import { Loader2, Eye, EyeOff, CheckCircle, AlertCircle } from 'lucide-react';
+import logoUrl from '../assets/crypto-logo.svg?url';
 
 const Register: React.FC = () => {
   const [formData, setFormData] = useState({
@@ -116,11 +117,11 @@ const Register: React.FC = () => {
 
       <Card className="w-full max-w-md bg-dark-800/90 border-dark-700/50 text-white shadow-2xl backdrop-blur-sm relative z-10">
         <CardHeader className="text-center space-y-2">
-          <div className="mx-auto w-16 h-16 bg-gradient-to-br from-primary-500 to-blue-500 rounded-2xl flex items-center justify-center mb-4">
-            <span className="text-2xl font-bold text-white">CA</span>
+          <div className="mx-auto mb-4">
+            <img src={logoUrl} alt="Crypto Logo" className="w-16 h-16 rounded-2xl shadow-[0_8px_24px_rgba(0,163,255,0.45)]" />
           </div>
-          <CardTitle className="text-3xl font-bold bg-gradient-to-r from-primary-500 to-blue-500 bg-clip-text text-transparent">
-            Crypto-Arbitrage
+          <CardTitle className="text-3xl font-extrabold text-gradient-silver tracking-tight">
+            Crypto Arbitrage
           </CardTitle>
           <CardDescription className="text-gray-400 text-lg">
             Créez votre compte et commencez à investir

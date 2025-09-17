@@ -157,9 +157,15 @@ const AdminDashboard: React.FC = () => {
   return (
     <div className="space-y-6">
       {/* Header */}
-      <div>
-        <h1 className="text-3xl font-bold text-white">Dashboard Administrateur</h1>
-        <p className="text-gray-400">Vue d'ensemble de la plateforme</p>
+      <div className="flex items-center justify-between">
+        <div>
+          <h1 className="text-3xl font-extrabold text-gradient-silver tracking-tight">Dashboard Administrateur</h1>
+          <p className="text-gray-400">Vue d'ensemble de la plateforme</p>
+        </div>
+        <div className="hidden md:flex items-center gap-3">
+          <Button size="sm" variant="outline" className="border-primary-500/40 text-primary-400 hover:bg-primary-500/10">Exporter</Button>
+          <Button size="sm" className="bg-gradient-to-r from-primary-500 to-blue-600">Créer un plan</Button>
+        </div>
       </div>
 
       {/* Stats Cards */}
