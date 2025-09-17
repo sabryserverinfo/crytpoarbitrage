@@ -49,25 +49,31 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const navItems = isAdmin ? adminNavItems : clientNavItems;
 
   return (
-    <div className="min-h-screen bg-gray-50">{/* ProRealTime Clean Background */}
+    <div className="min-h-screen bg-gray-900" style={{
+      background: `
+        radial-gradient(ellipse at top, rgba(247, 147, 26, 0.1) 0%, transparent 50%),
+        radial-gradient(ellipse at bottom, rgba(98, 126, 234, 0.1) 0%, transparent 50%),
+        #0a0b0d
+      `
+    }}>
       
-      {/* ProRealTime Style Header */}
-      <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm">
+      {/* Modern Crypto Mobile Header */}
+      <div className="lg:hidden fixed top-0 left-0 right-0 z-50 crypto-panel border-b border-orange-500/20">
         <div className="flex items-center justify-between p-4">
           <div className="flex items-center space-x-3">
-            <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center">
-              <span className="text-white font-bold text-sm">CA</span>
+            <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-yellow-500 rounded-lg flex items-center justify-center shadow-lg">
+              <span className="text-white font-bold text-lg">₿</span>
             </div>
             <div>
-              <h1 className="text-lg font-semibold text-gray-900">CryptoArb</h1>
-              <p className="text-xs text-gray-500">Trading Platform</p>
+              <h1 className="text-xl font-bold text-white">CryptoArb</h1>
+              <p className="text-xs text-orange-400">Trading Platform</p>
             </div>
           </div>
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="p-2 rounded border border-gray-300 hover:bg-gray-50 transition-colors"
+            className="p-3 rounded-lg crypto-card hover:border-orange-500 transition-all"
           >
-            {sidebarOpen ? <X className="w-5 h-5 text-gray-600" /> : <Menu className="w-5 h-5 text-gray-600" />}
+            {sidebarOpen ? <X className="w-5 h-5 text-white" /> : <Menu className="w-5 h-5 text-white" />}
           </button>
         </div>
       </div>
@@ -80,38 +86,44 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         />
       )}
 
-      {/* ProRealTime Style Sidebar */}
-      <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-gray-200 shadow-sm transform transition-transform duration-300 ease-in-out lg:translate-x-0 ${
+      {/* Modern Crypto Sidebar */}
+      <div className={`fixed inset-y-0 left-0 z-50 w-72 crypto-panel border-r border-orange-500/20 transform transition-transform duration-300 ease-in-out lg:translate-x-0 ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       }`}>
         <div className="flex flex-col h-full">
-          {/* Logo */}
-          <div className="flex items-center space-x-3 p-6 border-b border-gray-200">
-            <div className="w-10 h-10 bg-blue-600 rounded flex items-center justify-center">
-              <span className="text-white font-bold text-lg">CA</span>
+          {/* Professional Crypto Logo */}
+          <div className="flex items-center space-x-4 p-6 border-b border-orange-500/20">
+            <div className="relative">
+              <div className="w-12 h-12 bg-gradient-to-br from-orange-500 via-yellow-500 to-orange-600 rounded-xl flex items-center justify-center shadow-2xl">
+                <span className="text-white font-bold text-2xl">₿</span>
+              </div>
+              <div className="absolute -top-1 -right-1 w-4 h-4 bg-green-500 rounded-full border-2 border-gray-900 animate-pulse"></div>
             </div>
             <div>
-              <span className="text-xl font-bold text-gray-900">CryptoArb</span>
-              <p className="text-xs text-gray-500 font-medium">Trading Platform</p>
+              <span className="text-2xl font-bold bg-gradient-to-r from-orange-400 to-yellow-400 bg-clip-text text-transparent">CryptoArb</span>
+              <p className="text-xs text-gray-400 font-medium">Professional Trading</p>
             </div>
           </div>
 
-          {/* User Info */}
-          <div className="p-4 border-b border-gray-200">
-            <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-gray-100 border border-gray-200 rounded-full flex items-center justify-center">
-                <User className="w-5 h-5 text-gray-600" />
-              </div>
-              <div>
-                <p className="text-gray-900 font-medium">{user?.name}</p>
-                <p className="text-gray-500 text-sm">{user?.email}</p>
-                <span className={`inline-block px-2 py-1 text-xs rounded-full font-medium ${
-                  isAdmin 
-                    ? 'bg-red-50 border border-red-200 text-red-700' 
-                    : 'bg-green-50 border border-green-200 text-green-700'
-                }`}>
-                  {isAdmin ? 'Admin' : 'Client'}
-                </span>
+          {/* Enhanced User Info */}
+          <div className="p-4 border-b border-orange-500/20">
+            <div className="crypto-card p-4">
+              <div className="flex items-center space-x-3">
+                <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
+                  <User className="w-6 h-6 text-white" />
+                </div>
+                <div className="flex-1">
+                  <p className="text-white font-semibold">{user?.name}</p>
+                  <p className="text-gray-400 text-sm">{user?.email}</p>
+                  <span className={`inline-flex items-center px-3 py-1 text-xs font-semibold rounded-full mt-1 ${
+                    isAdmin 
+                      ? 'bg-red-500/20 border border-red-500/30 text-red-400' 
+                      : 'bg-green-500/20 border border-green-500/30 text-green-400'
+                  }`}>
+                    <div className={`w-2 h-2 rounded-full mr-2 ${isAdmin ? 'bg-red-400' : 'bg-green-400'}`}></div>
+                    {isAdmin ? 'Administrator' : 'Trader'}
+                  </span>
+                </div>
               </div>
             </div>
           </div>
@@ -128,14 +140,23 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                     <Link
                       to={item.path}
                       onClick={() => setSidebarOpen(false)}
-                      className={`flex items-center space-x-3 px-3 py-2 rounded-lg transition-colors hover-ring ${
+                      className={`group flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 ${
                         isActive
-                          ? 'bg-gradient-to-r from-primary-500/15 to-blue-500/10 text-primary-300 border border-primary-500/30 elevate-glow'
-                          : 'text-gray-300 hover:bg-white/5 hover:text-white border border-transparent'
+                          ? 'crypto-glow text-white font-semibold'
+                          : 'text-gray-400 hover:text-white hover:bg-white/5 crypto-card'
                       }`}
                     >
-                      <Icon className="w-5 h-5" />
-                      <span>{item.label}</span>
+                      <div className={`p-2 rounded-lg transition-all ${
+                        isActive 
+                          ? 'bg-orange-500 text-white shadow-lg' 
+                          : 'bg-gray-700 text-gray-400 group-hover:bg-orange-500/20 group-hover:text-orange-400'
+                      }`}>
+                        <Icon className="w-4 h-4" />
+                      </div>
+                      <span className="font-medium">{item.label}</span>
+                      {isActive && (
+                        <div className="ml-auto w-2 h-2 bg-orange-500 rounded-full animate-pulse"></div>
+                      )}
                     </Link>
                   </li>
                 );
@@ -143,24 +164,27 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
             </ul>
           </nav>
 
-          {/* Logout */}
-          <div className="p-4 border-t border-dark-700/60">
-            <Button
-              variant="ghost"
+          {/* Enhanced Logout */}
+          <div className="p-4 border-t border-orange-500/20">
+            <button
               onClick={handleLogout}
-              className="w-full justify-start text-gray-300 hover:text-white hover:bg-dark-700/60"
+              className="w-full flex items-center space-x-3 px-4 py-3 rounded-xl crypto-card hover:border-red-500/50 hover:bg-red-500/10 transition-all group"
             >
-              <LogOut className="w-5 h-5 mr-3" />
-              Déconnexion
-            </Button>
+              <div className="p-2 rounded-lg bg-red-500/20 text-red-400 group-hover:bg-red-500 group-hover:text-white transition-all">
+                <LogOut className="w-4 h-4" />
+              </div>
+              <span className="font-medium text-gray-400 group-hover:text-white">Déconnexion</span>
+            </button>
           </div>
         </div>
       </div>
 
       {/* Main Content */}
-      <div className="lg:ml-64">
-        <main className="p-4 lg:p-6 pt-20 lg:pt-6 container-page">
-          {children}
+      <div className="lg:ml-72">
+        <main className="p-6 lg:p-8 pt-24 lg:pt-8 min-h-screen">
+          <div className="max-w-7xl mx-auto">
+            {children}
+          </div>
         </main>
       </div>
     </div>
