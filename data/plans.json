@@ -1,0 +1,42 @@
+[
+  {
+    "id": "plan001",
+    "name": "Débutant",
+    "asset": "USDT",
+    "yield_percent": 8,
+    "min_eur": 100,
+    "max_eur": 1000,
+    "duration_months": 6,
+    "description": "Plan idéal pour débuter dans l'arbitrage crypto"
+  },
+  {
+    "id": "plan002",
+    "name": "Intermédiaire",
+    "asset": "USDT",
+    "yield_percent": 12,
+    "min_eur": 1000,
+    "max_eur": 10000,
+    "duration_months": 12,
+    "description": "Pour les investisseurs expérimentés"
+  },
+  {
+    "id": "plan003",
+    "name": "Expert",
+    "asset": "BTC",
+    "yield_percent": 15,
+    "min_eur": 5000,
+    "max_eur": 50000,
+    "duration_months": 24,
+    "description": "Plan premium pour les gros investisseurs"
+  },
+  {
+    "id": "plan004",
+    "name": "VIP",
+    "asset": "ETH",
+    "yield_percent": 18,
+    "min_eur": 10000,
+    "max_eur": 100000,
+    "duration_months": 36,
+    "description": "Plan exclusif avec rendements maximaux"
+  }
+]

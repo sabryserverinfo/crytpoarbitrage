@@ -1,0 +1,26 @@
+[
+  {
+    "user_id": "u2",
+    "asset": "USDT",
+    "balance": 1500,
+    "deposit_address": "TXYZ123456789abcdef"
+  },
+  {
+    "user_id": "u2",
+    "asset": "BTC",
+    "balance": 0.05,
+    "deposit_address": "bc1qxy2kgdygjrsqtzq2n0yrf2493p83kkfjhx0wlh"
+  },
+  {
+    "user_id": "u3",
+    "asset": "USDT",
+    "balance": 2500,
+    "deposit_address": "TXYZ987654321fedcba"
+  },
+  {
+    "user_id": "u3",
+    "asset": "ETH",
+    "balance": 2.5,
+    "deposit_address": "0x742d35Cc6634C0532925a3b8D4C9db96C4b4d8b6"
+  }
+]
