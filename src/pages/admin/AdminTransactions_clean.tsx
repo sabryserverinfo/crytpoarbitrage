@@ -170,7 +170,7 @@ const AdminDashboard: React.FC = () => {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card className="crypto-card">
+        <Card className="panel elevate-sm hover-ring transition-all duration-300">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-400">
               Total Utilisateurs
@@ -245,7 +245,7 @@ const AdminDashboard: React.FC = () => {
 
       {/* Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card className="crypto-panel">
+        <Card className="panel elevate-sm">
           <CardHeader>
             <CardTitle className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Croissance des Utilisateurs</CardTitle>
             <CardDescription>
@@ -313,7 +313,7 @@ const AdminDashboard: React.FC = () => {
       </div>
 
       {/* Recent Pending Transactions */}
-      <Card className="crypto-panel">
+      <Card className="bg-dark-800/60 border-dark-700/60 backdrop-blur-sm">
         <CardHeader>
           <CardTitle className="flex items-center space-x-2 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
             <AlertCircle className="w-5 h-5 text-yellow-500" />
@@ -335,17 +335,15 @@ const AdminDashboard: React.FC = () => {
             <div className="space-y-3">
               {recentTransactions.map((transaction) => {
                 const user = users.find(u => u.id === transaction.user_id);
-                const date = new Date(transaction.timestamp || Date.now());
+                const date = new Date(transaction.timestamp);
                 
                 return (
-                  <div key={transaction.id} className="flex items-center justify-between p-4 crypto-card">
-                    <div className="flex items-center space-x-3">
-                      <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
-                        transaction.type === 'WITHDRAW' ? 'bg-red-500/20' : 'bg-green-500/20'
-                      }`}>
+                  <div key={transaction.id} className="flex items-center justify-between p-4 bg-yellow-500/10 border border-yellow-500/20 rounded-lg">
+                    <div className="flex items-center space-x-4">
+                      <div className="w-10 h-10 bg-yellow-500/20 rounded-full flex items-center justify-center">
                         {transaction.type === 'WITHDRAW' ? 
-                          <ArrowDownRight className="w-5 h-5 text-red-400" /> : 
-                          <ArrowUpRight className="w-5 h-5 text-green-400" />
+                          <ArrowUpRight className="w-5 h-5 text-yellow-500" /> :
+                          <ArrowDownRight className="w-5 h-5 text-yellow-500" />
                         }
                       </div>
                       <div>
@@ -376,7 +374,7 @@ const AdminDashboard: React.FC = () => {
 
       {/* Quick Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <Card className="crypto-panel">
+        <Card className="panel elevate-sm">
           <CardHeader>
             <CardTitle className="text-lg">Plans Actifs</CardTitle>
           </CardHeader>
@@ -390,7 +388,7 @@ const AdminDashboard: React.FC = () => {
           </CardContent>
         </Card>
 
-        <Card className="crypto-card">
+        <Card>
           <CardHeader>
             <CardTitle className="text-lg">Portefeuilles</CardTitle>
           </CardHeader>
@@ -404,7 +402,7 @@ const AdminDashboard: React.FC = () => {
           </CardContent>
         </Card>
 
-        <Card className="crypto-card">
+        <Card>
           <CardHeader>
             <CardTitle className="text-lg">Transactions</CardTitle>
           </CardHeader>
