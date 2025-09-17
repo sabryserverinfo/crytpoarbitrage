@@ -140,7 +140,7 @@ const AdminUsers: React.FC = () => {
 
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <Card className="bg-dark-800/60 border-dark-700/60 backdrop-blur-sm hover:bg-dark-800/80 transition-all duration-300">
+        <Card className="panel elevate-sm hover-ring transition-all duration-300">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-400">
               Total Utilisateurs
@@ -184,7 +184,7 @@ const AdminUsers: React.FC = () => {
       </div>
 
       {/* Search */}
-      <Card className="bg-dark-800/60 border-dark-700/60 backdrop-blur-sm">
+      <Card className="panel elevate-sm">
         <CardContent className="p-6">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
@@ -256,7 +256,7 @@ const AdminUsers: React.FC = () => {
       {/* Add/Edit Form Modal */}
       {(showAddForm || editingUser) && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-          <Card className="w-full max-w-md bg-dark-800/90 border-dark-700/60 backdrop-blur-md">
+          <Card className="w-full max-w-md panel elevate-md">
             <CardHeader>
               <CardTitle className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
                 {editingUser ? 'Modifier l\'utilisateur' : 'Ajouter un utilisateur'}

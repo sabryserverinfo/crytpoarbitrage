@@ -178,7 +178,7 @@ const ClientPlans: React.FC = () => {
       {/* Plans Grid */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {plans.map((plan) => (
-          <Card key={plan.id} className="relative overflow-hidden bg-dark-800/60 border-dark-700/60 backdrop-blur-sm transition-all duration-300 hover:bg-dark-800/80 hover:-translate-y-0.5 hover:shadow-[0_10px_30px_-15px_rgba(0,163,255,0.35)] hover:ring-1 hover:ring-primary-500/30">
+          <Card key={plan.id} className="relative overflow-hidden panel elevate-sm hover-ring transition-all duration-300">
             {plan.name === 'VIP' && (
               <div className="absolute top-4 right-4">
                 <Star className="w-5 h-5 text-yellow-500 fill-current" />

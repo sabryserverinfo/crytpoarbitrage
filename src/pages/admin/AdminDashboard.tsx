@@ -170,7 +170,7 @@ const AdminDashboard: React.FC = () => {
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card className="bg-dark-800/60 border-dark-700/60 backdrop-blur-sm hover:bg-dark-800/80 transition-all duration-300">
+        <Card className="panel elevate-sm hover-ring transition-all duration-300">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-400">
               Total Utilisateurs
@@ -245,7 +245,7 @@ const AdminDashboard: React.FC = () => {
 
       {/* Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card className="bg-dark-800/60 border-dark-700/60 backdrop-blur-sm">
+        <Card className="panel elevate-sm">
           <CardHeader>
             <CardTitle className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Croissance des Utilisateurs</CardTitle>
             <CardDescription>
@@ -374,7 +374,7 @@ const AdminDashboard: React.FC = () => {
 
       {/* Quick Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <Card>
+        <Card className="panel elevate-sm">
           <CardHeader>
             <CardTitle className="text-lg">Plans Actifs</CardTitle>
           </CardHeader>

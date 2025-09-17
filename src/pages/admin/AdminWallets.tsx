@@ -182,7 +182,7 @@ const AdminWallets: React.FC = () => {
 
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <Card className="bg-dark-800/60 border-dark-700/60 backdrop-blur-sm hover:bg-dark-800/80 transition-all duration-300">
+        <Card className="panel elevate-sm hover-ring transition-all duration-300">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-400">
               Total Portefeuilles
@@ -243,7 +243,7 @@ const AdminWallets: React.FC = () => {
       </div>
 
       {/* Search */}
-      <Card className="bg-dark-800/60 border-dark-700/60 backdrop-blur-sm">
+      <Card className="panel elevate-sm">
         <CardContent className="p-6">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
@@ -261,7 +261,7 @@ const AdminWallets: React.FC = () => {
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredWallets.map((wallet) => {
           return (
-            <Card key={`${wallet.user_id}-${wallet.asset}`} className="bg-dark-800/60 border-dark-700/60 backdrop-blur-sm hover:bg-dark-800/80 transition-colors">
+            <Card key={`${wallet.user_id}-${wallet.asset}`} className="panel elevate-sm hover-ring transition-colors">
               <CardHeader>
                 <div className="flex items-center justify-between">
                   <div className="flex items-center space-x-3">

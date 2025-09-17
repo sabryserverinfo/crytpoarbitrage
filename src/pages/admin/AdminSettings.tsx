@@ -98,7 +98,7 @@ const AdminSettings: React.FC = () => {
 
       <form onSubmit={handleSaveSettings} className="space-y-6">
         {/* API Configuration */}
-        <Card className="bg-dark-800/60 border-dark-700/60 backdrop-blur-sm">
+        <Card className="panel elevate-sm">
           <CardHeader>
             <CardTitle className="flex items-center space-x-2 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
               <Key className="w-5 h-5" />
