@@ -161,7 +161,7 @@ const AdminPlans: React.FC = () => {
 
       {/* Stats */}
       <div className="grid grid-cols-1 md:grid-cols-4 gap-6">
-        <Card className="panel elevate-sm hover-ring transition-all duration-300">
+        <Card className="stat-card hover-ring">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-400">
               Total Plans
@@ -175,7 +175,7 @@ const AdminPlans: React.FC = () => {
           </CardContent>
         </Card>
 
-        <Card className="crypto-card">
+        <Card className="stat-card hover-ring">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-400">
               Rendement Moyen
@@ -189,7 +189,7 @@ const AdminPlans: React.FC = () => {
           </CardContent>
         </Card>
 
-        <Card className="crypto-card">
+        <Card className="stat-card hover-ring">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-400">
               Durée Moyenne
@@ -203,7 +203,7 @@ const AdminPlans: React.FC = () => {
           </CardContent>
         </Card>
 
-        <Card className="crypto-card">
+        <Card className="stat-card hover-ring">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-400">
               Investissement Min
@@ -219,7 +219,7 @@ const AdminPlans: React.FC = () => {
       </div>
 
       {/* Search */}
-      <Card className="panel elevate-sm">
+      <Card className="enhanced-card hover-ring">
         <CardContent className="p-6">
           <div className="relative">
             <Search className="absolute left-3 top-1/2 transform -translate-y-1/2 w-4 h-4 text-gray-400" />
@@ -236,7 +236,7 @@ const AdminPlans: React.FC = () => {
       {/* Plans List */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredPlans.map((plan) => (
-          <Card key={plan.id} className="panel elevate-sm hover-ring transition-colors">
+          <Card key={plan.id} className="enhanced-card hover-ring transition-colors">
             <CardHeader>
               <div className="flex items-center justify-between">
                 <div>
@@ -252,13 +252,13 @@ const AdminPlans: React.FC = () => {
             <CardContent className="space-y-4">
               {/* Stats */}
               <div className="grid grid-cols-2 gap-4">
-                <div className="text-center p-3 bg-dark-700 rounded-lg">
+                <div className="text-center p-3 bg-white/5 border border-white/10 rounded-lg">
                   <div className="text-2xl font-bold text-primary-500">
                     {plan.yield_percent}%
                   </div>
                   <div className="text-sm text-gray-400">Rendement</div>
                 </div>
-                <div className="text-center p-3 bg-dark-700 rounded-lg">
+                <div className="text-center p-3 bg-white/5 border border-white/10 rounded-lg">
                   <div className="text-2xl font-bold text-green-500">
                     {plan.duration_months}
                   </div>
@@ -267,7 +267,7 @@ const AdminPlans: React.FC = () => {
               </div>
 
               {/* Asset Info */}
-              <div className="flex items-center justify-between p-3 bg-dark-700 rounded-lg">
+              <div className="flex items-center justify-between p-3 bg-white/5 border border-white/10 rounded-lg">
                 <div className="flex items-center space-x-2">
                   <span className="text-lg">{getAssetIcon(plan.asset)}</span>
                   <span className="text-white font-medium">{plan.asset}</span>
@@ -280,7 +280,7 @@ const AdminPlans: React.FC = () => {
                   <DollarSign className="w-4 h-4 text-gray-400" />
                   <span className="text-sm text-gray-400">Montant d'investissement</span>
                 </div>
-                <div className="text-center p-2 bg-dark-700 rounded">
+                <div className="text-center p-2 bg-white/5 border border-white/10 rounded">
                   <span className="text-white font-medium">
                     {plan.min_eur.toLocaleString('fr-FR', { 
                       style: 'currency', 
@@ -321,7 +321,7 @@ const AdminPlans: React.FC = () => {
       {/* Add/Edit Form Modal */}
       {(showAddForm || editingPlan) && (
         <div className="fixed inset-0 bg-black/50 flex items-center justify-center p-4 z-50">
-          <Card className="w-full max-w-md panel elevate-md">
+          <Card className="w-full max-w-md enhanced-card hover-ring">
             <CardHeader>
               <CardTitle>
                 {editingPlan ? 'Modifier le plan' : 'Créer un plan'}

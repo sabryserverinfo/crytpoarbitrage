@@ -3,6 +3,26 @@ import type { User, Wallet, Plan, Transaction, Settings } from '../types';
 // Accès via Netlify Functions (proxy GitHub). Aucune clé côté client.
 const API_BASE = '/api';
 
+// Helpers localStorage
+const lsKey = (filename: string) => `data:${filename}`;
+const readFromLocalStorage = <T>(filename: string): T[] | null => {
+  try {
+    const raw = localStorage.getItem(lsKey(filename));
+    if (!raw) return null;
+    return JSON.parse(raw) as T[];
+  } catch {
+    return null;
+  }
+};
+const writeToLocalStorage = <T>(filename: string, data: T[]): boolean => {
+  try {
+    localStorage.setItem(lsKey(filename), JSON.stringify(data));
+    return true;
+  } catch {
+    return false;
+  }
+};
+
 // Fonction générique pour lire un fichier JSON via fonction Netlify
 export const readJsonFile = async <T>(filename: string): Promise<T[]> => {
   try {
@@ -14,12 +34,25 @@ export const readJsonFile = async <T>(filename: string): Promise<T[]> => {
     return json as T[];
   } catch (error) {
     console.error(`Error reading ${filename} from Netlify API:`, error);
-    // Fallback vers les données locales (sans double extension)
+    // 1) Fallback localStorage
+    const lsData = readFromLocalStorage<T>(filename);
+    if (lsData) return lsData;
+    // 2) Fallback: fetch depuis le dossier public (/data/*.json)
+    try {
+      const res = await fetch(`/data/${filename}`);
+      if (res.ok) {
+        const data = await res.json();
+        return data as T[];
+      }
+    } catch (e) {
+      console.error(`Public fetch fallback failed for ${filename}:`, e);
+    }
+    // 3) Fallback vers les données locales packagées (au cas où)
     try {
       const local = await import(`../../data/${filename}`);
       return (local as any).default as T[];
     } catch (e) {
-      console.error(`Local fallback failed for ${filename}:`, e);
+      console.error(`Local packaged fallback failed for ${filename}:`, e);
       return [] as T[];
     }
   }
@@ -36,12 +69,14 @@ export const writeJsonFile = async <T>(filename: string, data: T[]): Promise<boo
     if (!res.ok) {
       const msg = await res.text();
       console.error('Write failed:', msg);
-      return false;
+      // Fallback localStorage en cas d'échec API
+      return writeToLocalStorage(filename, data);
     }
     return true;
   } catch (error) {
     console.error(`Error writing ${filename} via Netlify API:`, error);
-    return false;
+    // Fallback localStorage si indisponible
+    return writeToLocalStorage(filename, data);
   }
 };
 

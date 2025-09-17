@@ -1,0 +1,9 @@
+[
+  { "user_id": "u_admin", "asset": "BTC", "balance": 0.025, "deposit_address": "btc_u_admin_seed" },
+  { "user_id": "u_admin", "asset": "ETH", "balance": 0.5, "deposit_address": "eth_u_admin_seed" },
+  { "user_id": "u_admin", "asset": "USDT", "balance": 1200, "deposit_address": "usdt_u_admin_seed" },
+
+  { "user_id": "u_client", "asset": "BTC", "balance": 0.15, "deposit_address": "btc_u_client_seed" },
+  { "user_id": "u_client", "asset": "ETH", "balance": 1.7, "deposit_address": "eth_u_client_seed" },
+  { "user_id": "u_client", "asset": "USDT", "balance": 540, "deposit_address": "usdt_u_client_seed" }
+]

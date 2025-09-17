@@ -1,0 +1,29 @@
+[
+  {
+    "id": "t1",
+    "user_id": "u_client",
+    "asset": "USDT",
+    "amount": 250,
+    "type": "DEPOSIT",
+    "status": "confirmed",
+    "timestamp": 1736899200000
+  },
+  {
+    "id": "t2",
+    "user_id": "u_client",
+    "asset": "USDT",
+    "amount": 150,
+    "type": "INVEST",
+    "status": "confirmed",
+    "timestamp": 1737072000000
+  },
+  {
+    "id": "t3",
+    "user_id": "u_client",
+    "asset": "USDT",
+    "amount": 12,
+    "type": "PROFIT",
+    "status": "confirmed",
+    "timestamp": 1737244800000
+  }
+]

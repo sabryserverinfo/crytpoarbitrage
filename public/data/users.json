@@ -1,0 +1,16 @@
+[
+  {
+    "id": "u_admin",
+    "name": "Alice Admin",
+    "email": "alice@internal.dev",
+    "password": "alice123",
+    "role": "admin"
+  },
+  {
+    "id": "u_client",
+    "name": "Bob Client",
+    "email": "bob@internal.dev",
+    "password": "bob123",
+    "role": "user"
+  }
+]

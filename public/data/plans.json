@@ -1,0 +1,32 @@
+[
+  {
+    "id": "plan_starter",
+    "name": "Starter",
+    "asset": "USDT",
+    "yield_percent": 3,
+    "min_eur": 250,
+    "max_eur": 999,
+    "duration_months": 3,
+    "description": "Plan de démarrage pour découvrir l'arbitrage."
+  },
+  {
+    "id": "plan_pro",
+    "name": "Pro",
+    "asset": "USDT",
+    "yield_percent": 5,
+    "min_eur": 1000,
+    "max_eur": 4999,
+    "duration_months": 6,
+    "description": "Plan recommandé pour rendement équilibré."
+  },
+  {
+    "id": "plan_elite",
+    "name": "Elite",
+    "asset": "USDT",
+    "yield_percent": 7,
+    "min_eur": 5000,
+    "max_eur": 100000,
+    "duration_months": 12,
+    "description": "Plan premium à rendement plus élevé."
+  }
+]

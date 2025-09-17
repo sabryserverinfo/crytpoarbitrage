@@ -117,7 +117,7 @@ const AdminDashboard: React.FC = () => {
   const generateAssetDistributionData = () => {
     const assetTotals: Record<string, number> = {};
     
-    wallets.forEach(wallet => {
+    wallets.forEach((wallet: Wallet) => {
       const price = cryptoPrices[wallet.asset] || 0;
       const value = wallet.balance * price;
       assetTotals[wallet.asset] = (assetTotals[wallet.asset] || 0) + value;
@@ -164,13 +164,13 @@ const AdminDashboard: React.FC = () => {
         </div>
         <div className="hidden md:flex items-center gap-3">
           <Button size="sm" variant="outline" className="border-primary-500/40 text-primary-400 hover:bg-primary-500/10">Exporter</Button>
-          <Button size="sm" className="bg-gradient-to-r from-primary-500 to-blue-600">Créer un plan</Button>
+          <Button size="sm" className="btn-primary glow-primary">Créer un plan</Button>
         </div>
       </div>
 
       {/* Stats Cards */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-        <Card className="crypto-card">
+        <Card className="stat-card hover-ring">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-400">
               Total Utilisateurs
@@ -188,7 +188,7 @@ const AdminDashboard: React.FC = () => {
           </CardContent>
         </Card>
 
-        <Card className="crypto-card">
+        <Card className="stat-card hover-ring">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-400">
               Solde Global
@@ -208,7 +208,7 @@ const AdminDashboard: React.FC = () => {
           </CardContent>
         </Card>
 
-        <Card className="crypto-card">
+        <Card className="stat-card hover-ring">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-400">
               ROI Global
@@ -225,7 +225,7 @@ const AdminDashboard: React.FC = () => {
           </CardContent>
         </Card>
 
-        <Card className="crypto-card">
+        <Card className="stat-card hover-ring">
           <CardHeader className="flex flex-row items-center justify-between space-y-0 pb-2">
             <CardTitle className="text-sm font-medium text-gray-400">
               En Attente
@@ -245,7 +245,7 @@ const AdminDashboard: React.FC = () => {
 
       {/* Charts */}
       <div className="grid grid-cols-1 lg:grid-cols-2 gap-6">
-        <Card className="crypto-panel">
+        <Card className="enhanced-card hover-ring">
           <CardHeader>
             <CardTitle className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Croissance des Utilisateurs</CardTitle>
             <CardDescription>
@@ -273,7 +273,7 @@ const AdminDashboard: React.FC = () => {
           </CardContent>
         </Card>
 
-        <Card className="crypto-panel">
+        <Card className="enhanced-card hover-ring">
           <CardHeader>
             <CardTitle className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Répartition des Actifs</CardTitle>
             <CardDescription>
@@ -313,7 +313,7 @@ const AdminDashboard: React.FC = () => {
       </div>
 
       {/* Recent Pending Transactions */}
-      <Card className="crypto-panel">
+      <Card className="enhanced-card hover-ring">
         <CardHeader>
           <CardTitle className="flex items-center space-x-2 bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">
             <AlertCircle className="w-5 h-5 text-yellow-500" />
@@ -333,12 +333,12 @@ const AdminDashboard: React.FC = () => {
             </div>
           ) : (
             <div className="space-y-3">
-              {recentTransactions.map((transaction) => {
-                const user = users.find(u => u.id === transaction.user_id);
+              {recentTransactions.map((transaction: Transaction) => {
+                const user = users.find((u: User) => u.id === transaction.user_id);
                 const date = new Date(transaction.timestamp || Date.now());
                 
                 return (
-                  <div key={transaction.id} className="flex items-center justify-between p-4 crypto-card">
+                  <div key={transaction.id} className="flex items-center justify-between p-4 enhanced-card hover-ring">
                     <div className="flex items-center space-x-3">
                       <div className={`w-10 h-10 rounded-full flex items-center justify-center ${
                         transaction.type === 'WITHDRAW' ? 'bg-red-500/20' : 'bg-green-500/20'
@@ -376,7 +376,7 @@ const AdminDashboard: React.FC = () => {
 
       {/* Quick Stats */}
       <div className="grid grid-cols-1 md:grid-cols-3 gap-6">
-        <Card className="crypto-panel">
+        <Card className="stat-card hover-ring">
           <CardHeader>
             <CardTitle className="text-lg">Plans Actifs</CardTitle>
           </CardHeader>
@@ -390,7 +390,7 @@ const AdminDashboard: React.FC = () => {
           </CardContent>
         </Card>
 
-        <Card className="crypto-card">
+        <Card className="stat-card hover-ring">
           <CardHeader>
             <CardTitle className="text-lg">Portefeuilles</CardTitle>
           </CardHeader>
@@ -404,7 +404,7 @@ const AdminDashboard: React.FC = () => {
           </CardContent>
         </Card>
 
-        <Card className="crypto-card">
+        <Card className="stat-card hover-ring">
           <CardHeader>
             <CardTitle className="text-lg">Transactions</CardTitle>
           </CardHeader>

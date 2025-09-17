@@ -58,7 +58,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
     }}>
       
       {/* Modern Crypto Mobile Header */}
-      <div className="lg:hidden fixed top-0 left-0 right-0 z-50 crypto-panel border-b border-orange-500/20">
+      <div className="lg:hidden fixed top-0 left-0 right-0 z-50 enhanced-card border-b border-orange-500/20">
         <div className="flex items-center justify-between p-4">
           <div className="flex items-center space-x-3">
             <div className="w-10 h-10 bg-gradient-to-br from-orange-500 to-yellow-500 rounded-lg flex items-center justify-center shadow-lg">
@@ -71,7 +71,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           </div>
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="p-3 rounded-lg crypto-card hover:border-orange-500 transition-all"
+            className="p-3 rounded-lg enhanced-card hover-ring hover:border-orange-500 transition-all"
           >
             {sidebarOpen ? <X className="w-5 h-5 text-white" /> : <Menu className="w-5 h-5 text-white" />}
           </button>
@@ -87,7 +87,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
       )}
 
       {/* Modern Crypto Sidebar */}
-      <div className={`fixed inset-y-0 left-0 z-50 w-72 crypto-panel border-r border-orange-500/20 transform transition-transform duration-300 ease-in-out lg:translate-x-0 ${
+      <div className={`fixed inset-y-0 left-0 z-50 w-72 enhanced-card border-r border-orange-500/20 transform transition-transform duration-300 ease-in-out lg:translate-x-0 ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       }`}>
         <div className="flex flex-col h-full">
@@ -107,7 +107,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
 
           {/* Enhanced User Info */}
           <div className="p-4 border-b border-orange-500/20">
-            <div className="crypto-card p-4">
+            <div className="enhanced-card hover-ring p-4">
               <div className="flex items-center space-x-3">
                 <div className="w-12 h-12 bg-gradient-to-br from-blue-500 to-purple-600 rounded-full flex items-center justify-center shadow-lg">
                   <User className="w-6 h-6 text-white" />
@@ -143,7 +143,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
                       className={`group flex items-center space-x-3 px-4 py-3 rounded-xl transition-all duration-200 ${
                         isActive
                           ? 'crypto-glow text-white font-semibold'
-                          : 'text-gray-400 hover:text-white hover:bg-white/5 crypto-card'
+                          : 'text-gray-400 hover:text-white hover:bg-white/5 hover-ring'
                       }`}
                     >
                       <div className={`p-2 rounded-lg transition-all ${
@@ -168,7 +168,7 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
           <div className="p-4 border-t border-orange-500/20">
             <button
               onClick={handleLogout}
-              className="w-full flex items-center space-x-3 px-4 py-3 rounded-xl crypto-card hover:border-red-500/50 hover:bg-red-500/10 transition-all group"
+              className="w-full flex items-center space-x-3 px-4 py-3 rounded-xl enhanced-card hover-ring hover:border-red-500/50 hover:bg-red-500/10 transition-all group"
             >
               <div className="p-2 rounded-lg bg-red-500/20 text-red-400 group-hover:bg-red-500 group-hover:text-white transition-all">
                 <LogOut className="w-4 h-4" />

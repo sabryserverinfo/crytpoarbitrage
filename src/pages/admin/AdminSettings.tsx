@@ -152,7 +152,7 @@ const AdminSettings: React.FC = () => {
       </div>
 
       {/* System Status */}
-      <Card className="crypto-panel glow-primary">
+      <Card className="enhanced-card hover-ring glow-primary">
         <CardHeader>
           <CardTitle className="text-2xl text-gradient-primary flex items-center">
             <Shield className="w-6 h-6 mr-3" />
