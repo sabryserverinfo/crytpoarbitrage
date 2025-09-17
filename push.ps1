@@ -4,7 +4,7 @@ Write-Host "🚀 Déploiement sur GitHub - Crypto-Arbitrage" -ForegroundColor Gr
 # Ajouter le remote
 Write-Host "🔗 Configuration du remote GitHub..." -ForegroundColor Yellow
 & "C:\Program Files\Git\cmd\git.exe" remote remove origin 2>$null
-& "C:\Program Files\Git\cmd\git.exe" remote add origin https://github.com/sabryserverinfo/crypto-com-arbitrage.git
+& "C:\Program Files\Git\cmd\git.exe" remote add origin https://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@github.com/sabryserverinfo/crypto-com-arbitrage.git
 
 # Ajouter tous les fichiers
 Write-Host "📁 Ajout des fichiers..." -ForegroundColor Yellow
