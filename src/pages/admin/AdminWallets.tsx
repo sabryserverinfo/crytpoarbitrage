@@ -260,9 +260,6 @@ const AdminWallets: React.FC = () => {
       {/* Wallets List */}
       <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
         {filteredWallets.map((wallet) => {
-          const price = cryptoPrices[wallet.asset] || 0;
-          const valueEUR = wallet.balance * price;
-          
           return (
             <Card key={`${wallet.user_id}-${wallet.asset}`} className="bg-dark-800/60 border-dark-700/60 backdrop-blur-sm hover:bg-dark-800/80 transition-colors">
               <CardHeader>
@@ -353,7 +350,7 @@ const AdminWallets: React.FC = () => {
               const value = wallet.balance * price;
               
               return (
-                <div key={wallet.id} className="table-row" style={{gridTemplateColumns: '1fr 0.6fr 0.8fr 1fr 0.5fr'}}>
+                <div key={`${wallet.user_id}-${wallet.asset}`} className="table-row" style={{gridTemplateColumns: '1fr 0.6fr 0.8fr 1fr 0.5fr'}}>
                   <div className="flex items-center space-x-3 min-w-0">
                     <div className="w-9 h-9 bg-dark-600 rounded-full flex items-center justify-center flex-shrink-0">
                       <WalletIcon className="w-4 h-4 text-primary-500" />
