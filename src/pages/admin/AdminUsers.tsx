@@ -12,14 +12,14 @@ const AdminUsers: React.FC = () => {
         </div>
       </div>
 
-      <Card className="crypto-panel">
+      <Card className="enhanced-card hover-ring">
         <CardHeader>
           <CardTitle className="bg-gradient-to-r from-white to-gray-300 bg-clip-text text-transparent">Liste</CardTitle>
           <CardDescription>Module détaillé à réinstaller</CardDescription>
         </CardHeader>
         <CardContent>
           <div className="text-gray-400 text-sm">Interface nettoyée. Les duplications ont été supprimées.</div>
-          <div className="mt-4"><Button variant="outline">Actualiser</Button></div>
+          <div className="mt-4"><Button className="btn-primary glow-primary">Actualiser</Button></div>
         </CardContent>
       </Card>
     </div>
