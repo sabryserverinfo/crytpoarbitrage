@@ -1,7 +1,7 @@
 import React from 'react';
 import { Card, CardContent, CardDescription, CardHeader, CardTitle } from '../../components/ui/card';
 import { Button } from '../../components/ui/button';
-import { CreditCard, ArrowRight, Star } from 'lucide-react';
+import { CreditCard, ArrowRight } from 'lucide-react';
 
 const ClientPlans: React.FC = () => {
   return (
