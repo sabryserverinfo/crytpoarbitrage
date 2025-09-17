@@ -669,17 +669,19 @@ div.enhanced-card:hover,
 }
 
 /* Stat Cards */
-.stat-card {
+.stat-card,
+div.stat-card,
+[class*="stat-card"] {
   background: linear-gradient(135deg, 
     rgba(22, 26, 30, 0.95) 0%, 
-    rgba(46, 49, 57, 0.9) 100%);
-  border: 1px solid rgba(255, 255, 255, 0.1);
-  border-radius: var(--radius-lg);
-  backdrop-filter: blur(20px);
+    rgba(46, 49, 57, 0.9) 100%) !important;
+  border: 1px solid rgba(255, 255, 255, 0.1) !important;
+  border-radius: var(--radius-lg) !important;
+  backdrop-filter: blur(20px) !important;
   box-shadow: 
     0 8px 32px rgba(0, 0, 0, 0.3),
-    inset 0 1px 0 rgba(255, 255, 255, 0.05);
-  transition: all 0.3s ease;
+    inset 0 1px 0 rgba(255, 255, 255, 0.05) !important;
+  transition: all 0.3s ease !important;
   position: relative;
   overflow: hidden;
 }
@@ -698,14 +700,18 @@ div.enhanced-card:hover,
   transition: opacity 0.3s ease;
 }
 
-.stat-card:hover::after {
-  opacity: 1;
+.stat-card:hover::after,
+div.stat-card:hover::after,
+[class*="stat-card"]:hover::after {
+  opacity: 1 !important;
 }
 
-.stat-card:hover {
-  border-color: rgba(247, 147, 26, 0.4);
+.stat-card:hover,
+div.stat-card:hover,
+[class*="stat-card"]:hover {
+  border-color: rgba(247, 147, 26, 0.4) !important;
   box-shadow: 
     0 12px 40px rgba(0, 0, 0, 0.4),
-    0 0 20px rgba(247, 147, 26, 0.2);
-  transform: translateY(-2px);
+    0 0 20px rgba(247, 147, 26, 0.2) !important;
+  transform: translateY(-2px) !important;
 }

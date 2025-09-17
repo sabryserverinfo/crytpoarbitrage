@@ -89,7 +89,7 @@ const Register: React.FC = () => {
   if (success) {
     return (
       <div className="flex items-center justify-center min-h-screen bg-gradient-to-br from-dark-900 via-dark-800 to-dark-900">
-        <Card className="w-full max-w-md bg-dark-800/90 border-dark-700/50 text-white shadow-2xl backdrop-blur-sm">
+        <Card className="w-full max-w-md enhanced-card hover-ring text-white">
           <CardContent className="pt-6">
             <div className="text-center space-y-4">
               <CheckCircle className="h-16 w-16 text-green-500 mx-auto animate-pulse" />
@@ -115,7 +115,7 @@ const Register: React.FC = () => {
       <div className="absolute top-20 left-20 w-72 h-72 bg-primary-500/10 rounded-full blur-3xl animate-pulse"></div>
       <div className="absolute bottom-20 right-20 w-96 h-96 bg-blue-500/10 rounded-full blur-3xl animate-pulse delay-1000"></div>
 
-      <Card className="w-full max-w-md bg-dark-800/90 border-dark-700/50 text-white shadow-2xl backdrop-blur-sm relative z-10">
+      <Card className="w-full max-w-md enhanced-card hover-ring text-white relative z-10">
         <CardHeader className="text-center space-y-2">
           <div className="mx-auto mb-4">
             <img src={logoUrl} alt="Crypto Logo" className="w-16 h-16 rounded-2xl shadow-[0_8px_24px_rgba(0,163,255,0.45)]" />

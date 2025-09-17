@@ -57,7 +57,7 @@ const Login: React.FC = () => {
           </Link>
         </div>
 
-        <Card className="bg-dark-800/90 backdrop-blur-sm border-dark-700/50 shadow-2xl">
+        <Card className="enhanced-card hover-ring">
           <CardHeader className="text-center space-y-2">
             <CardTitle className="text-3xl font-bold text-white">Connexion</CardTitle>
             <CardDescription className="text-gray-400 text-lg">

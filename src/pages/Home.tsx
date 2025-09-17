@@ -80,7 +80,7 @@ const Home: React.FC = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {['BTC','ETH','USDT'].map((asset) => (
-            <div key={asset} className="flex items-center justify-between rounded-lg bg-dark-800/60 border border-dark-700/60 px-4 py-2 text-sm text-gray-300">
+            <div key={asset} className="flex items-center justify-between enhanced-card hover-ring px-4 py-2 text-sm text-gray-300">
               <span className="font-medium">
                 {asset}
               </span>
@@ -142,7 +142,7 @@ const Home: React.FC = () => {
         </div>
         
         <div className="grid md:grid-cols-3 gap-8">
-          <Card className="bg-dark-800/50 border-dark-700/50 backdrop-blur-sm hover:bg-dark-800/70 transition-all duration-300 group hover:scale-105">
+          <Card className="enhanced-card hover-ring transition-all duration-300 group hover:scale-105">
             <CardHeader>
               <div className="w-16 h-16 bg-gradient-to-br from-primary-500/20 to-blue-500/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <Zap className="w-8 h-8 text-primary-500" />
@@ -160,7 +160,7 @@ const Home: React.FC = () => {
             </CardContent>
           </Card>
 
-          <Card className="bg-dark-800/50 border-dark-700/50 backdrop-blur-sm hover:bg-dark-800/70 transition-all duration-300 group hover:scale-105">
+          <Card className="enhanced-card hover-ring transition-all duration-300 group hover:scale-105">
             <CardHeader>
               <div className="w-16 h-16 bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <BarChart3 className="w-8 h-8 text-green-500" />
@@ -216,7 +216,7 @@ const Home: React.FC = () => {
         ) : (
           <div className="grid md:grid-cols-3 gap-8">
             {plans.map((plan) => (
-              <Card key={plan.id} className="bg-dark-800/60 border-dark-700/60 backdrop-blur-sm hover:bg-dark-800/80 transition-all duration-300 group">
+              <Card key={plan.id} className="enhanced-card hover-ring transition-all duration-300 group">
                 <CardHeader>
                   <CardTitle className="text-2xl text-white flex items-baseline justify-between">
                     <span>{plan.name}</span>
@@ -263,7 +263,7 @@ const Home: React.FC = () => {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-6 items-center">
           {['Binance','OKX','Bybit','Kraken','Bitget'].map((name) => (
-            <div key={name} className="h-16 bg-dark-800/60 border border-dark-700/60 rounded-xl flex items-center justify-center text-gray-300 hover:text-white hover:bg-dark-800/80 transition-colors">
+            <div key={name} className="h-16 enhanced-card hover-ring rounded-xl flex items-center justify-center text-gray-300 hover:text-white transition-colors">
               <span className="text-sm md:text-base font-medium">{name}</span>
             </div>
           ))}
@@ -278,7 +278,7 @@ const Home: React.FC = () => {
         </div>
         <div className="grid md:grid-cols-3 gap-6">
           {[1,2,3].map((i) => (
-            <Card key={i} className="bg-dark-800/60 border-dark-700/60 backdrop-blur-sm hover:bg-dark-800/80 transition-colors">
+            <Card key={i} className="enhanced-card hover-ring transition-colors">
               <CardContent className="p-6 space-y-4">
                 <div className="flex items-center space-x-3">
                   <div className="w-10 h-10 rounded-full bg-primary-500/20 border border-primary-500/30" />
@@ -314,7 +314,7 @@ const Home: React.FC = () => {
             { q: "Les prix sont-ils en temps réel ?", a: "Nous utilisons des données actualisées chaque minute pour un suivi précis." },
             { q: "Comment choisir mon plan ?", a: "Sélectionnez selon votre horizon (durée) et votre budget (min/max)." }
           ].map((item, idx) => (
-            <Card key={idx} className="bg-dark-800/60 border-dark-700/60 backdrop-blur-sm hover:bg-dark-800/80 transition-colors">
+            <Card key={idx} className="enhanced-card hover-ring transition-colors">
               <CardHeader>
                 <CardTitle className="text-white text-lg">{item.q}</CardTitle>
               </CardHeader>
@@ -340,7 +340,7 @@ const Home: React.FC = () => {
           },{
             title: 'Phase 3', desc: 'Fonctionnalités sociales et API publique.'
           }].map((step, idx) => (
-            <Card key={idx} className="bg-dark-800/60 border-dark-700/60 backdrop-blur-sm hover:bg-dark-800/80 transition-colors">
+            <Card key={idx} className="enhanced-card hover-ring transition-colors">
               <CardHeader>
                 <CardTitle className="text-white text-lg">{step.title}</CardTitle>
               </CardHeader>
@@ -388,7 +388,7 @@ const Home: React.FC = () => {
 
       {/* CTA Section */}
       <section className="container mx-auto px-4 py-20 text-center relative z-10">
-        <Card className="max-w-4xl mx-auto bg-gradient-to-r from-primary-500/10 via-blue-500/10 to-purple-500/10 border-primary-500/20 backdrop-blur-sm">
+        <Card className="max-w-4xl mx-auto enhanced-card hover-ring">
           <CardHeader className="pb-8">
             <CardTitle className="text-4xl md:text-5xl font-bold text-white mb-4">
               Prêt à révolutionner vos 

@@ -5,8 +5,8 @@ const Card = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
 >(({ className, ...props }, ref) => {
-  // Si className contient enhanced-card, on l'utilise directement
-  if (className && className.includes('enhanced-card')) {
+  // Si className contient nos classes visuelles personnalisées, on les utilise directement
+  if (className && (className.includes('enhanced-card') || className.includes('stat-card'))) {
     return (
       <div
         ref={ref}
