@@ -49,29 +49,25 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
   const navItems = isAdmin ? adminNavItems : clientNavItems;
 
   return (
-    <div className="min-h-screen relative bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900">
-      {/* Advanced Background Effects */}
-      <div className="fixed inset-0 bg-gradient-to-br from-slate-900 via-purple-900 to-slate-900"></div>
-      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_top_right,_var(--tw-gradient-stops))] from-blue-600/20 via-transparent to-transparent"></div>
-      <div className="fixed inset-0 bg-[radial-gradient(ellipse_at_bottom_left,_var(--tw-gradient-stops))] from-purple-600/20 via-transparent to-transparent"></div>
+    <div className="min-h-screen bg-gray-50">{/* ProRealTime Clean Background */}
       
-      {/* Mobile Header */}
-      <div className="lg:hidden fixed top-0 left-0 right-0 z-50 panel-glass border-b border-white/10 backdrop-blur-xl">
+      {/* ProRealTime Style Header */}
+      <div className="lg:hidden fixed top-0 left-0 right-0 z-50 bg-white border-b border-gray-200 shadow-sm">
         <div className="flex items-center justify-between p-4">
           <div className="flex items-center space-x-3">
-            <div className="w-10 h-10 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-lg">
-              <span className="text-white font-bold text-lg">C</span>
+            <div className="w-8 h-8 bg-blue-600 rounded flex items-center justify-center">
+              <span className="text-white font-bold text-sm">CA</span>
             </div>
             <div>
-              <h1 className="text-xl font-bold text-gradient-primary">CryptoArb</h1>
-              <p className="text-xs text-gray-400">Trading Platform</p>
+              <h1 className="text-lg font-semibold text-gray-900">CryptoArb</h1>
+              <p className="text-xs text-gray-500">Trading Platform</p>
             </div>
           </div>
           <button
             onClick={() => setSidebarOpen(!sidebarOpen)}
-            className="p-3 rounded-xl panel hover-ring transition-all duration-200"
+            className="p-2 rounded border border-gray-300 hover:bg-gray-50 transition-colors"
           >
-            {sidebarOpen ? <X className="w-5 h-5" /> : <Menu className="w-5 h-5" />}
+            {sidebarOpen ? <X className="w-5 h-5 text-gray-600" /> : <Menu className="w-5 h-5 text-gray-600" />}
           </button>
         </div>
       </div>
@@ -84,35 +80,35 @@ const Layout: React.FC<LayoutProps> = ({ children }) => {
         />
       )}
 
-      {/* Sidebar */}
-      <div className={`fixed inset-y-0 left-0 z-50 w-64 panel border-r transform transition-transform duration-300 ease-in-out lg:translate-x-0 ${
+      {/* ProRealTime Style Sidebar */}
+      <div className={`fixed inset-y-0 left-0 z-50 w-64 bg-white border-r border-gray-200 shadow-sm transform transition-transform duration-300 ease-in-out lg:translate-x-0 ${
         sidebarOpen ? 'translate-x-0' : '-translate-x-full'
       }`}>
         <div className="flex flex-col h-full">
           {/* Logo */}
-          <div className="flex items-center space-x-3 p-6 border-b border-white/10">
-            <div className="w-12 h-12 rounded-xl bg-gradient-to-br from-blue-500 to-purple-600 flex items-center justify-center shadow-xl elevate-glow">
-              <span className="text-white font-bold text-xl">C</span>
+          <div className="flex items-center space-x-3 p-6 border-b border-gray-200">
+            <div className="w-10 h-10 bg-blue-600 rounded flex items-center justify-center">
+              <span className="text-white font-bold text-lg">CA</span>
             </div>
             <div>
-              <span className="text-xl font-extrabold text-gradient-primary tracking-tight">CryptoArb</span>
-              <p className="text-xs text-gray-400 font-medium">Trading Platform</p>
+              <span className="text-xl font-bold text-gray-900">CryptoArb</span>
+              <p className="text-xs text-gray-500 font-medium">Trading Platform</p>
             </div>
           </div>
 
           {/* User Info */}
-          <div className="p-4 border-b border-dark-700/60">
+          <div className="p-4 border-b border-gray-200">
             <div className="flex items-center space-x-3">
-              <div className="w-10 h-10 bg-primary-500/20 border border-primary-500/30 rounded-full flex items-center justify-center">
-                <User className="w-5 h-5 text-white" />
+              <div className="w-10 h-10 bg-gray-100 border border-gray-200 rounded-full flex items-center justify-center">
+                <User className="w-5 h-5 text-gray-600" />
               </div>
               <div>
-                <p className="text-white font-medium">{user?.name}</p>
-                <p className="text-gray-400 text-sm">{user?.email}</p>
-                <span className={`inline-block px-2 py-1 text-xs rounded-full ${
+                <p className="text-gray-900 font-medium">{user?.name}</p>
+                <p className="text-gray-500 text-sm">{user?.email}</p>
+                <span className={`inline-block px-2 py-1 text-xs rounded-full font-medium ${
                   isAdmin 
-                    ? 'bg-red-500/15 border border-red-500/20 text-red-400' 
-                    : 'bg-green-500/15 border border-green-500/20 text-green-400'
+                    ? 'bg-red-50 border border-red-200 text-red-700' 
+                    : 'bg-green-50 border border-green-200 text-green-700'
                 }`}>
                   {isAdmin ? 'Admin' : 'Client'}
                 </span>
