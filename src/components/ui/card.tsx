@@ -4,17 +4,30 @@ import { cn } from "../../utils/cn"
 const Card = React.forwardRef<
   HTMLDivElement,
   React.HTMLAttributes<HTMLDivElement>
->(({ className, ...props }, ref) => (
-  <div
-    ref={ref}
-    className={cn(
-      "rounded-xl text-white shadow-[0_10px_30px_-15px_rgba(0,163,255,0.35)] backdrop-blur-sm",
-      "[background:linear-gradient(#0B1124,#0B1124)_padding-box,linear-gradient(135deg,#0033AD,#00A3FF)_border-box] border border-transparent",
-      className
-    )}
-    {...props}
-  />
-))
+>(({ className, ...props }, ref) => {
+  // Si className contient enhanced-card, on l'utilise directement
+  if (className && className.includes('enhanced-card')) {
+    return (
+      <div
+        ref={ref}
+        className={className}
+        {...props}
+      />
+    )
+  }
+  
+  return (
+    <div
+      ref={ref}
+      className={cn(
+        "rounded-xl text-white shadow-[0_10px_30px_-15px_rgba(0,163,255,0.35)] backdrop-blur-sm",
+        "[background:linear-gradient(#0B1124,#0B1124)_padding-box,linear-gradient(135deg,#0033AD,#00A3FF)_border-box] border border-transparent",
+        className
+      )}
+      {...props}
+    />
+  )
+})
 Card.displayName = "Card"
 
 const CardHeader = React.forwardRef<
