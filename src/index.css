@@ -628,9 +628,9 @@ button.btn-primary:hover,
 }
 
 /* Enhanced Cards */
-.enhanced-card,
-div.enhanced-card,
-[class*="enhanced-card"] {
+.design-v2 .enhanced-card,
+.design-v2 div.enhanced-card,
+.design-v2 [class*="enhanced-card"] {
   background: linear-gradient(135deg, 
     rgba(22, 26, 30, 0.9) 0%, 
     rgba(46, 49, 57, 0.8) 100%) !important;
@@ -645,7 +645,7 @@ div.enhanced-card,
   overflow: hidden;
 }
 
-.enhanced-card::before {
+.design-v2 .enhanced-card::before {
   content: '';
   position: absolute;
   top: 0;
@@ -658,9 +658,9 @@ div.enhanced-card,
     transparent);
 }
 
-.enhanced-card:hover,
-div.enhanced-card:hover,
-[class*="enhanced-card"]:hover {
+.design-v2 .enhanced-card:hover,
+.design-v2 div.enhanced-card:hover,
+.design-v2 [class*="enhanced-card"]:hover {
   border-color: var(--color-primary) !important;
   box-shadow: 
     0 25px 50px rgba(0, 0, 0, 0.5),
@@ -669,9 +669,9 @@ div.enhanced-card:hover,
 }
 
 /* Stat Cards */
-.stat-card,
-div.stat-card,
-[class*="stat-card"] {
+.design-v2 .stat-card,
+.design-v2 div.stat-card,
+.design-v2 [class*="stat-card"] {
   background: linear-gradient(135deg, 
     rgba(22, 26, 30, 0.95) 0%, 
     rgba(46, 49, 57, 0.9) 100%) !important;
@@ -686,7 +686,7 @@ div.stat-card,
   overflow: hidden;
 }
 
-.stat-card::after {
+.design-v2 .stat-card::after {
   content: '';
   position: absolute;
   top: 0;
@@ -700,17 +700,17 @@ div.stat-card,
   transition: opacity 0.3s ease;
 }
 
-.stat-card:hover::after,
-div.stat-card:hover::after,
-[class*="stat-card"]:hover::after {
+.design-v2 .stat-card:hover::after,
+.design-v2 div.stat-card:hover::after,
+.design-v2 [class*="stat-card"]:hover::after {
   opacity: 1 !important;
 }
 
-.stat-card:hover,
-div.stat-card:hover,
-[class*="stat-card"]:hover {
+.design-v2 .stat-card:hover,
+.design-v2 div.stat-card:hover,
+.design-v2 [class*="stat-card"]:hover {
   border-color: rgba(247, 147, 26, 0.4) !important;
-  box-shadow: 
+  box-shadow:
     0 12px 40px rgba(0, 0, 0, 0.4),
     0 0 20px rgba(247, 147, 26, 0.2) !important;
   transform: translateY(-2px) !important;
