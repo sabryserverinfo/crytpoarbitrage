@@ -14,7 +14,6 @@ import {
   Menu,
   X
 } from 'lucide-react';
-import logoUrl from '../assets/crypto-logo.svg?url';
 
 interface LayoutProps {
   children: React.ReactNode;
