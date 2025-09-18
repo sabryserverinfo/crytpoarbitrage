@@ -80,7 +80,28 @@ const Home: React.FC = () => {
       <div className="container mx-auto px-4 relative z-10">
         <div className="grid grid-cols-1 sm:grid-cols-3 gap-3">
           {['BTC','ETH','USDT'].map((asset) => (
-            <div key={asset} className="flex items-center justify-between enhanced-card hover-ring px-4 py-2 text-sm text-gray-300">
+            <div 
+              key={asset} 
+              className="flex items-center justify-between px-4 py-2 text-sm text-gray-300"
+              style={{
+                background: 'linear-gradient(135deg, rgba(22, 26, 30, 0.9) 0%, rgba(46, 49, 57, 0.8) 100%)',
+                border: '1px solid rgba(247, 147, 26, 0.2)',
+                borderRadius: '12px',
+                backdropFilter: 'blur(24px)',
+                boxShadow: '0 8px 20px rgba(0, 0, 0, 0.3)',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = '#f7931a';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(247, 147, 26, 0.2)';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(247, 147, 26, 0.2)';
+                e.currentTarget.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.3)';
+                e.currentTarget.style.transform = 'translateY(0)';
+              }}
+            >
               <span className="font-medium">
                 {asset}
               </span>
@@ -263,7 +284,27 @@ const Home: React.FC = () => {
         </div>
         <div className="grid grid-cols-2 md:grid-cols-5 gap-6 items-center">
           {['Binance','OKX','Bybit','Kraken','Bitget'].map((name) => (
-            <div key={name} className="h-16 enhanced-card hover-ring rounded-xl flex items-center justify-center text-gray-300 hover:text-white transition-colors">
+            <div 
+              key={name} 
+              className="h-16 rounded-xl flex items-center justify-center text-gray-300 hover:text-white transition-colors"
+              style={{
+                background: 'linear-gradient(135deg, rgba(22, 26, 30, 0.9) 0%, rgba(46, 49, 57, 0.8) 100%)',
+                border: '1px solid rgba(247, 147, 26, 0.2)',
+                backdropFilter: 'blur(24px)',
+                boxShadow: '0 8px 20px rgba(0, 0, 0, 0.3)',
+                transition: 'all 0.3s ease'
+              }}
+              onMouseEnter={(e) => {
+                e.currentTarget.style.borderColor = '#f7931a';
+                e.currentTarget.style.boxShadow = '0 12px 30px rgba(0, 0, 0, 0.4), 0 0 20px rgba(247, 147, 26, 0.2)';
+                e.currentTarget.style.transform = 'translateY(-2px)';
+              }}
+              onMouseLeave={(e) => {
+                e.currentTarget.style.borderColor = 'rgba(247, 147, 26, 0.2)';
+                e.currentTarget.style.boxShadow = '0 8px 20px rgba(0, 0, 0, 0.3)';
+                e.currentTarget.style.transform = 'translateY(0)';
+              }}
+            >
               <span className="text-sm md:text-base font-medium">{name}</span>
             </div>
           ))}

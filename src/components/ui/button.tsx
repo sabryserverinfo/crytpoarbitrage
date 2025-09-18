@@ -39,14 +39,34 @@ export interface ButtonProps
 }
 
 const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
-  ({ className, variant, size, asChild = false, ...props }, ref) => {
+  ({ className, variant, size, asChild = false, style, ...props }, ref) => {
     const Comp = asChild ? Slot : "button"
     
-    // Si className contient btn-primary, on l'utilise directement sans merge
+    // Si className contient btn-primary, on applique les styles inline
     if (className && className.includes('btn-primary')) {
       return (
         <Comp
           className={className}
+          style={{
+            background: 'linear-gradient(135deg, #f7931a 0%, #ffb347 100%)',
+            color: 'white',
+            border: 'none',
+            padding: '0.75rem 1.5rem',
+            borderRadius: '16px',
+            fontWeight: '600',
+            transition: 'all 0.3s ease',
+            cursor: 'pointer',
+            boxShadow: '0 4px 6px -1px rgba(0, 0, 0, 0.1)',
+            ...style
+          }}
+          onMouseEnter={(e) => {
+            e.currentTarget.style.transform = 'translateY(-2px)';
+            e.currentTarget.style.boxShadow = '0 0 20px rgba(247, 147, 26, 0.3)';
+          }}
+          onMouseLeave={(e) => {
+            e.currentTarget.style.transform = 'translateY(0)';
+            e.currentTarget.style.boxShadow = '0 4px 6px -1px rgba(0, 0, 0, 0.1)';
+          }}
           ref={ref}
           {...props}
         />
