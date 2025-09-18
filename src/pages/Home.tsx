@@ -163,59 +163,128 @@ const Home: React.FC = () => {
         </div>
         
         <div className="grid md:grid-cols-3 gap-8">
-          <Card className="enhanced-card hover-ring transition-all duration-300 group hover:scale-105">
-            <CardHeader>
+          <div 
+            className="transition-all duration-300 group hover:scale-105"
+            style={{
+              background: 'linear-gradient(135deg, rgba(22, 26, 30, 0.9) 0%, rgba(46, 49, 57, 0.8) 100%)',
+              border: '1px solid rgba(247, 147, 26, 0.2)',
+              borderRadius: '20px',
+              backdropFilter: 'blur(24px)',
+              boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+              transition: 'all 0.3s ease',
+              position: 'relative',
+              overflow: 'hidden',
+              padding: '24px'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = '#f7931a';
+              e.currentTarget.style.boxShadow = '0 25px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(247, 147, 26, 0.3)';
+              e.currentTarget.style.transform = 'translateY(-4px)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = 'rgba(247, 147, 26, 0.2)';
+              e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)';
+              e.currentTarget.style.transform = 'translateY(0)';
+            }}
+          >
+            <div className="mb-6">
               <div className="w-16 h-16 bg-gradient-to-br from-primary-500/20 to-blue-500/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <Zap className="w-8 h-8 text-primary-500" />
               </div>
-              <CardTitle className="text-2xl text-white">Architecture Décentralisée</CardTitle>
-              <CardDescription className="text-gray-400 text-lg">
+              <h3 className="text-2xl text-white mb-2">Architecture Décentralisée</h3>
+              <p className="text-gray-400 text-lg mb-4">
                 Architecture 100% front-end avec stockage décentralisé sur GitHub
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
+              </p>
+            </div>
+            <div>
               <p className="text-gray-300 leading-relaxed">
                 Aucun serveur à maintenir, aucune donnée sensible stockée. 
                 Tout fonctionne directement depuis votre navigateur avec une sécurité maximale.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
 
-          <Card className="enhanced-card hover-ring transition-all duration-300 group hover:scale-105">
-            <CardHeader>
+          <div 
+            className="transition-all duration-300 group hover:scale-105"
+            style={{
+              background: 'linear-gradient(135deg, rgba(22, 26, 30, 0.9) 0%, rgba(46, 49, 57, 0.8) 100%)',
+              border: '1px solid rgba(247, 147, 26, 0.2)',
+              borderRadius: '20px',
+              backdropFilter: 'blur(24px)',
+              boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+              transition: 'all 0.3s ease',
+              position: 'relative',
+              overflow: 'hidden',
+              padding: '24px'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = '#f7931a';
+              e.currentTarget.style.boxShadow = '0 25px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(247, 147, 26, 0.3)';
+              e.currentTarget.style.transform = 'translateY(-4px)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = 'rgba(247, 147, 26, 0.2)';
+              e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)';
+              e.currentTarget.style.transform = 'translateY(0)';
+            }}
+          >
+            <div className="mb-6">
               <div className="w-16 h-16 bg-gradient-to-br from-green-500/20 to-emerald-500/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <BarChart3 className="w-8 h-8 text-green-500" />
               </div>
-              <CardTitle className="text-2xl text-white">Données Temps Réel</CardTitle>
-              <CardDescription className="text-gray-400 text-lg">
+              <h3 className="text-2xl text-white mb-2">Données Temps Réel</h3>
+              <p className="text-gray-400 text-lg mb-4">
                 Prix crypto en temps réel via CoinGecko API
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
+              </p>
+            </div>
+            <div>
               <p className="text-gray-300 leading-relaxed">
                 Suivez les fluctuations du marché en temps réel avec des données 
                 précises et actualisées toutes les minutes pour des décisions optimales.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
 
-          <Card className="bg-dark-800/50 border-dark-700/50 backdrop-blur-sm hover:bg-dark-800/70 transition-all duration-300 group hover:scale-105">
-            <CardHeader>
+          <div 
+            className="transition-all duration-300 group hover:scale-105"
+            style={{
+              background: 'linear-gradient(135deg, rgba(22, 26, 30, 0.9) 0%, rgba(46, 49, 57, 0.8) 100%)',
+              border: '1px solid rgba(247, 147, 26, 0.2)',
+              borderRadius: '20px',
+              backdropFilter: 'blur(24px)',
+              boxShadow: '0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)',
+              transition: 'all 0.3s ease',
+              position: 'relative',
+              overflow: 'hidden',
+              padding: '24px'
+            }}
+            onMouseEnter={(e) => {
+              e.currentTarget.style.borderColor = '#f7931a';
+              e.currentTarget.style.boxShadow = '0 25px 50px rgba(0, 0, 0, 0.5), 0 0 30px rgba(247, 147, 26, 0.3)';
+              e.currentTarget.style.transform = 'translateY(-4px)';
+            }}
+            onMouseLeave={(e) => {
+              e.currentTarget.style.borderColor = 'rgba(247, 147, 26, 0.2)';
+              e.currentTarget.style.boxShadow = '0 20px 40px rgba(0, 0, 0, 0.4), inset 0 1px 0 rgba(255, 255, 255, 0.1)';
+              e.currentTarget.style.transform = 'translateY(0)';
+            }}
+          >
+            <div className="mb-6">
               <div className="w-16 h-16 bg-gradient-to-br from-purple-500/20 to-pink-500/20 rounded-2xl flex items-center justify-center mb-6 group-hover:scale-110 transition-transform duration-300">
                 <Shield className="w-8 h-8 text-purple-500" />
               </div>
-              <CardTitle className="text-2xl text-white">Interface Premium</CardTitle>
-              <CardDescription className="text-gray-400 text-lg">
+              <h3 className="text-2xl text-white mb-2">Interface Premium</h3>
+              <p className="text-gray-400 text-lg mb-4">
                 Design moderne inspiré de Crypto.com
-              </CardDescription>
-            </CardHeader>
-            <CardContent>
+              </p>
+            </div>
+            <div>
               <p className="text-gray-300 leading-relaxed">
                 Une interface intuitive et élégante qui vous permet de gérer 
                 vos investissements en toute simplicité avec un design premium.
               </p>
-            </CardContent>
-          </Card>
+            </div>
+          </div>
         </div>
       </section>
 
